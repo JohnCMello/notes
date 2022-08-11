@@ -104,8 +104,8 @@ Provider
 =======
 ```
 |- /src
-  |-/store
-    |-/reducers
+  |- /store
+    |- /reducers
       |- accountReducer.js
       |- index.js
     |- store.js
@@ -137,8 +137,8 @@ useSelector
 
 ```
 |- /src
-  |-/store
-    |-/reducers
+  |- /store
+    |- /reducers
       |- accountReducer.js
       |- index.js
     |- index.js +	  
@@ -177,13 +177,13 @@ Action Creators
 
 ```
 |- /src
-  |-/store
-    |-/action-creators +
+  |- /store
+    |- /action-creators +
       |- index.js +
     |- /reducers
       |- accountReducer.js
       |- index.js
-	  |- store.js
+    |- store.js
   |- App.js
   |- index.js
 ```
@@ -209,8 +209,8 @@ export const withdrawMoney = (amount) =>{
 ```
 ```
 |- /src
-  |-/store
-    |-/action-creators
+  |- /store
+    |- /action-creators
       |- index.js
     |-/reducers
       |- accountReducer.js
@@ -230,8 +230,8 @@ useDispatch
 ===========
 ```
 |- /src
-  |-/store
-    |-/action-creators
+  |- /store
+    |- /action-creators
       |- index.js
     |-/reducers
       |- accountReducer.js
@@ -288,8 +288,8 @@ Redux Thunk
 
 ```
 |- /src
-  |-/store
-    |-/action-creators
+  |- /store
+    |- /action-creators
       |- index.js
     |-/reducers
       |- accountReducer.js
