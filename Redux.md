@@ -35,7 +35,8 @@ Store
 	Estado da Aplicação
 
 ## Reducer 
-	Função que altera o estado baseado no typoe da ACTION e retorna novo Estado.  Recebe 2 parametros (state = initialState, action)
+	Função que altera o estado baseado no type da ACTION e retorna novo Estado.  
+	Recebe 2 parametros (state = initialState, action)
 
 ```
 |- /src
@@ -83,8 +84,8 @@ export default reducers ;
 |- /src
   |- /store
     |- /reducers
-       |- accountReducer.js
-       |- index.js
+      |- accountReducer.js
+      |- index.js
     |- store.js +
 ```
 store/store.js
