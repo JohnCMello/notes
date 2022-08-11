@@ -231,15 +231,15 @@ useDispatch
 ===========
 ```
 |- /src
-|   |-/store
-|   |   |-/action-creators
-|   |   |   |- index.js
-|   |   |-/reducers
-|   |   |   |- accountReducer.js
-|   |   |   |- index.js
-|   |   |- index.js +	  
-|   |   |- store.js
-|   |- App.js
+  |-/store
+    |-/action-creators
+      |- index.js
+    |-/reducers
+      |- accountReducer.js
+      |- index.js
+    |- index.js +	  
+    |- store.js
+  |- App.js
 ```
 
 src/App.js
