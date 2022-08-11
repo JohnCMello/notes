@@ -101,6 +101,19 @@ export default store ;
 ```
 Provider
 =======
+```
+|- /src
+  |-/store
+    |-/action-creators
+      |- index.js
+    |-/reducers
+      |- accountReducer.js
+      |- index.js
+    |- index.js +	  
+    |- store.js
+  |- App.js
+  |- index.js
+```
 src/index.js
 ```js
 import { Provider } from "react-redux"
@@ -123,6 +136,20 @@ useSelector
 * useSelector => state (dentro da store) => reducers (combineReducers) => { key : value } 
 * key = nome da propriedade   
 * value = retorno do reducer
+
+```
+|- /src
+  |-/store
+    |-/action-creators
+      |- index.js
+    |-/reducers
+      |- accountReducer.js
+      |- index.js
+    |- index.js +	  
+    |- store.js
+  |- App.js
+  |- index.js
+```
 
 src/App.js
 
