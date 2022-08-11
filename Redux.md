@@ -39,9 +39,9 @@ Store
 
 ```
 |- /src
-|	|- /store +
-|	|   |- /reducers +
-|	|   |   |- accountReducer.js +
+  |- /store +
+    |- /reducers +
+       |- accountReducer.js +
 ```
 
 store/reducers/accountReducer.js
@@ -62,10 +62,10 @@ export default accountReducer ;
 ```
 ```
 |- /src
-|	|- /store
-|	|   |- /reducers
-|	|   |   |- accountReducer.js
-|	|   |   |- index.js +
+  |- /store
+    |- /reducers
+      |- accountReducer.js
+      |- index.js +
 ```
 store/reducers/index.js
 
@@ -81,11 +81,11 @@ export default reducers ;
 ```
 ```
 |- /src
-|	|- /store
-|	|   |- /reducers
-|	|   |	|- accountReducer.js
-|	|	|   |- index.js
-|	|   |- store.js +
+  |- /store
+    |- /reducers
+       |- accountReducer.js
+       |- index.js
+    |- store.js +
 ```
 store/store.js
 
@@ -148,19 +148,19 @@ function App () {
 export default App
 ```
 Action Creators
-==============
+===============
 
 * ACTION CREATORS são funções que fazem o DISPATCH de uma ACTION para o REDUCER que interpreta a ACTION e manipula a STORE
 
 ```
 |- /src
-|   |-/store
-|   |   |-/action-creators +
-|   |   |   |- index.js +
-|	|	|- /reducers
-|	|	|	|- accountReducer.js
-|	|	|	|- index.js
-|   |   |- store.js
+  |-/store
+    |-/action-creators +
+      |- index.js +
+    |- /reducers
+      |- accountReducer.js
+      |- index.js
+	|- store.js
 ```
 store/action-creators/index.js
 ```js
@@ -184,14 +184,14 @@ export const withdrawMoney = (amount) =>{
 ```
 ```
 |- /src
-|   |-/store
-|   |   |-/action-creators
-|   |   |   |- index.js
-|   |   |-/reducers
-|   |   |   |- accountReducer.js
-|   |   |   |- index.js
-|   |   |- index.js +	  
-|   |   |- store.js
+  |-/store
+    |-/action-creators
+      |- index.js
+    |-/reducers
+      |- accountReducer.js
+      |- index.js
+    |- index.js +	  
+    |- store.js
 ```
 store/index.js
 
@@ -245,7 +245,6 @@ function App () {
 
 export default App
 ```
-								    
 
 Redux Thunk
 ===========
@@ -261,15 +260,15 @@ Redux Thunk
 
 ```
 |- /src
-|   |-/store
-|   |   |-/action-creators
-|   |   |   |- index.js
-|   |   |-/reducers
-|   |   |   |- accountReducer.js
-|   |   |   |- index.js
-|   |   |- index.js  
-|   |   |- store.js
-|   |- App.js
+  |-/store
+    |-/action-creators
+      |- index.js
+    |-/reducers
+      |- accountReducer.js
+      |- index.js
+    |- index.js  
+    |- store.js
+  |- App.js
 ```
 
 store/store.js
