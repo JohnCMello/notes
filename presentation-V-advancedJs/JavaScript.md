@@ -1,6 +1,6 @@
 # JavaScript - Advanced Concepts
 
-### [ ] - Scope (global / local | function / block - var / let / const)
+### [X] - Scope (global / local | function / block - var / let / const)
 
 ### [ ] - Closures
 
@@ -169,7 +169,7 @@ function sayMyName() {
 
 Anteriormente ao ES6 (2015), existiam somente o escopo Global e o Escopo Local | Escopo de Função.
 
-Com a introdução de let e const, foi definido mais um ipo de escopo, o escopo de bloco
+Com a introdução de let e const, foi definido mais um tipo de escopo, o escopo de bloco
 
 Um bloco de código em Js é definido por código escrito dentro de **{...}**
 
@@ -214,9 +214,9 @@ console.log(i) // => ReferenceError: i is not defined
 
 <br/>
 
-> [Scope MDN](https://developer.mozilla.org/en-US/docs/Glossary/Scope)
+> [Scope - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Scope)
 
-> [Lexical Scope in JavaScript – Beginners Guide freeCodeCamp](https://www.freecodecamp.org/news/lexical-scope-in-javascript/)
+> [Lexical Scope in JavaScript – Beginners Guide - freeCodeCamp](https://www.freecodecamp.org/news/lexical-scope-in-javascript/)
 
 > [Lexical Scope in JavaScript – What Exactly Is Scope in JS? - freeCodeCamp](https://www.freecodecamp.org/news/javascript-lexical-scope-tutorial/)
 
