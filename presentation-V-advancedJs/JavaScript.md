@@ -298,7 +298,7 @@ johnsBday(); // => 'Meu nome é John e hoje é meu aniversário de 35 anos'
 juliasBday(); // => 'Meu nome é Julia e hoje é meu aniversário de 27 anos'
 ```
 
- <img src="assets/img/oneyearlater.jpg" alt="One year later" width="300" height="150">
+<img src="assets/img/oneyearlater.jpg" alt="One year later" width="300" height="150">
 
 ```js
 johnsBday(); // => 'Meu nome é John e hoje é meu aniversário de 36 anos'
