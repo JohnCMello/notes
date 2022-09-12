@@ -335,6 +335,96 @@ Uma Closure é uma função que preserva o escopo externo a ela, dentro do seu e
 
 # Hoisting
 
+Quando um codigo JS é executado pala sua respectiva engine, ele cria um [contexto global de execução (global execution context)](https://www.javascripttutorial.net/javascript-execution-context/), e ele tem duas fases.
+
+- Criação | Creation
+- Execução | Execution
+
+Durante a fase de criação, todas as declaraçoes de variáveis e funçoes são 'içadas'. Esse içamento é conhecido como Hoisting.
+
+Variáveis definidas com var são "movidas para o topo" e inicializadas com o valor de undefined por padrão.
+
+Note que esse código não gera uma exceção.
+
+```js
+console.log(myName); // => undefined
+
+var myName = `John`;
+
+console.log(myName); // => 'John'
+```
+
+Tecnicamente esse é o código antes da fase de execução.
+
+```js
+var myName; // var myName = undefined
+
+console.log(myName); // => undefined
+
+myName = `John`;
+
+console.log(myName); // => 'John'
+```
+
+A referência para a variável myName é criada em memória, o escopo é definido, e seu valor é inicializado como undefined.
+
+Caso tentemos acessar uma variável inicializada sem ter sido declarada antes, obtemos um erro de referência.
+
+```js
+console.log(myName); // => ReferenceError, o interpretador não conhece myName.
+
+myName = `John`;
+```
+
+Entretanto, a inicialização também causa a declaração de uma variável, ou seja, o código abaixo é executado, sem exceções, pois a variável é inicializada e declarada antes de ser utilizada
+
+```js
+myName = `John`; // inicialização de myName
+
+console.log(myName); // => 'John'
+```
+
+<br>
+
+Declarações de função também são 'içadas'.
+
+```js
+console.log(sayMyName(`John`));
+
+function sayMyName(name) {
+  return `Meu nome é ${name}`;
+}
+```
+
+ou seja:
+
+```js
+function sayMyName(name) {
+  return `Meu nome é ${name}`;
+}
+
+console.log(sayMyName(`John`));
+```
+
+> ### let / const
+
+<br>
+Variáveis declaradas com let | const também são içadas, mas não são inicializadas com o valor padrão de undefined.
+
+A leitura de variáveis declaradas com let e const antes da sua inicialização lança uma exceção.
+
+```js
+console.log(myName); // => ReferenceError, programa para.
+
+let myName = `John`;
+```
+
+```js
+console.log(myAge); // => ReferenceError, programa para.
+
+const myAge = 35;
+```
+
 # Value vs Reference Assignment
 
 # Destructuring
