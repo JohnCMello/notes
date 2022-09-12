@@ -327,6 +327,12 @@ Uma Closure é uma função que preserva o escopo externo a ela, dentro do seu e
 
 > [Private Members in JavaScript - www.crockford.com](http://www.crockford.com/javascript/private.html)
 
+> [JavaScript Closures - www.tutorialsteacher.com](https://www.tutorialsteacher.com/javascript/closure-in-javascript)
+
+> [Javascript: Mas afinal, o que são closures? - Medium](https://medium.com/@stephanowallace/javascript-mas-afinal-o-que-s%C3%A3o-closures-4d67863ca9fc)
+
+> [How to Use Closures in JavaScript – A Beginner's Guide - freeCodeCamp](https://www.freecodecamp.org/news/closures-in-javascript/)
+
 # Hoisting
 
 # Value vs Reference Assignment
