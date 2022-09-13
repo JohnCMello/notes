@@ -2,9 +2,9 @@
 
 ### [X] - Scope (global / local | function / block - var / let / const)
 
-### [ ] - Closures in JS
+### [X] - Closures in JS
 
-### [ ] - Hoisting?
+### [ ] - Hoisting
 
 ### [ ] - Value vs Reference Assignment
 
@@ -414,15 +414,57 @@ Variáveis declaradas com let | const também são içadas, mas não são inicia
 A leitura de variáveis declaradas com let e const antes da sua inicialização lança uma exceção.
 
 ```js
-console.log(myName); // => ReferenceError, programa para.
+console.log(myName); // => ReferenceError
 
 let myName = `John`;
 ```
 
 ```js
-console.log(myAge); // => ReferenceError, programa para.
+console.log(myAge); // => ReferenceError
 
 const myAge = 35;
+```
+
+> ### Classes
+
+- Class declaration
+
+Uma diferença importante entre class declaration e function declaration é que enquanto uma função pode ser invocada antes da sua declaração, o mesmo não acontece com classes.
+
+Declarações de classes sao içadas mas seus valores nao são inicializados.
+
+```js
+const p = new Pessoa(); // => ReferenceError
+
+class Pessoa {}
+```
+
+> ### Function e Class expression
+
+<br>
+
+Function e class expressions tem o mesmo tratamento de declarações de variáveis. A função ou a classe será inicializada na fase de execução do contexto global de execução.
+
+```js
+console.log(myFunction); // => ReferenceError
+
+const myFunction = function () {};
+```
+
+O mesmo acontece utilizando a sintaxe de Arrow functions
+
+```js
+console.log(myOtherFunction); // => ReferenceError
+
+const myOtherFunction = () => {};
+```
+
+```js
+console.log(myClass) // => ReferenceError
+
+const myClass = class {
+  constructor()
+};
 ```
 
 # Value vs Reference Assignment
