@@ -289,8 +289,8 @@ function birthday(name, years) {
   return celebrate;
 }
 
-const johnsBday = birthday("John", 35);
-const juliasBday = birthday("Julia", 27);
+const johnsBday = birthday('John', 35);
+const juliasBday = birthday('Julia', 27);
 ```
 
 ```js
@@ -467,7 +467,83 @@ const myClass = class {
 };
 ```
 
+> ## Sugestão de leitura
+
+<br/>
+
+> [Hoisting - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+
+> [JavaScript Hoisting - W3Schools](https://www.w3schools.com/js/js_hoisting.asp)
+
+> [JavaScript Hoisting - www.javascripttutorial.net](https://www.javascripttutorial.net/javascript-hoisting/)
+
+> [O que é Hoisting em Javascript? - Medium](https://medium.com/devzera/o-que-%C3%A9-hoisting-em-javascript-b8c629178518)
+
+> [JavaScript Hoisting - Programiz](https://www.programiz.com/javascript/hoisting)
+
 # Value vs Reference Assignment
+
+Em Js existem tipos que são copiados por valor e tipos que são copiados por referencia.
+
+- Copiados por valor:
+
+  - null
+  - undefined
+  - Number
+  - String
+  - Boolean
+
+- Copiados por referência:
+  - Object
+  - Array
+  - Function
+
+Tipos primitivos são copiados por valor e objetos por referência.
+
+> Copiados por Valor
+
+```js
+const name = `John`;
+
+let leftHandFingers = 5;
+let rightHandFingers = leftHandFingers;
+
+console.log(leftHandFingers); // => 5
+console.log(rightHandFingers); // => 5
+
+let developer = true;
+let frontEndDev = developer;
+
+console.log(developer); // => true
+console.log(frontEndDev); // => true
+```
+
+![](assets/img/values-in-memory.png)
+
+Apesar de atrubuirmos as variáveis leftHandFingers à rightHandFingers e developer à frontEndDev, o que é atribuido é o valor da variável, neste caso 5 e true, respectivamente.
+
+Vamos imaginar que algo acontece com rightHandFingers. (bata na madeira)
+
+```js
+rightHandFingers--;
+
+console.log(rightHandFingers); // => 4
+console.log(leftHandFingers); // => 5
+```
+
+> Copiados por Referência
+
+```js
+const name = 'John'
+const skills = ['cooking', 'dancing']
+const features = {
+  age: 35
+  hair: 'brown',
+  tall: true,
+}
+```
+
+![](assets/img/values-in-memory-2.png)
 
 # Destructuring
 
