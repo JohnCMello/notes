@@ -234,6 +234,8 @@ Closures são funções que fazem referência a variáveis declaradas no seu esc
 
 Qualquer função em JS pode ser uma closure.
 
+JavaScript usa o escopo para o gerenciamento de acesso a variáveis.
+
 ```js
 let name = `John`;
 
@@ -245,13 +247,11 @@ function greetings() {
 greetings(); // => 'Hi John'
 ```
 
-JavaScript usa o escopo para o gerenciamento de acesso a variáveis.
-
 Mesmo sendo declarada fora do escopo de greetings, no escopo global neste caso, a função tem acesso a variável name declarada no escopo mais externo.
 
-Isso traz um problema, qualquer código na pagina tem acesso a name e pode alterar o seu valor sem a necessidade de executar greetings.
+Isso traz um problema, qualquer código na página tem acesso a name e pode alterar o seu valor sem a necessidade de executar greetings.
 
-A variável message é local e só pode ser acessada dentro de greetings. Se tentarmos acessar de fora, obteremos um erro.
+A variável message é local e só pode ser acessada dentro de greetings. Se tentarmos acessa-la de fora, obteremos um erro.
 
 ```js
 function birthday(years) {
@@ -274,7 +274,7 @@ celebrate é a função mais interna e só está disponível no escopo da funç�
 
 A função celebrate tem acesso a variável age, definida em birthday, mas birthday nao tem acesso a birthdayMessage.
 
-- Vamos modificar a função birthday.
+Vamos modificar a função birthday.
 
 ```js
 function birthday(name, years) {
@@ -317,7 +317,7 @@ Como já sabemos, em JS, uma variável local só existe durante o tempo de execu
 
 Neste caso, nós executamos johnsBday | juliasBday que faz referência ao retorno de birthday, que é a função celebrate, e as variáveis ainda persistem.
 
-Uma Closure é uma função que preserva o escopo externo a ela, dentro do seu escopo.
+Uma Closure é uma função que preserva o escopo externo a ela dentro do seu escopo.
 
 > ## Sugestão de leitura
 
@@ -333,9 +333,12 @@ Uma Closure é uma função que preserva o escopo externo a ela, dentro do seu e
 
 > [How to Use Closures in JavaScript – A Beginner's Guide - freeCodeCamp](https://www.freecodecamp.org/news/closures-in-javascript/)
 
+<br/>
+<br/>
+
 # Hoisting
 
-Quando um código JS é executado pala sua respectiva engine, ele cria um [contexto global de execução (global execution context)](https://www.javascripttutorial.net/javascript-execution-context/), e ele tem duas fases.
+Quando um código JS é executado pela sua respectiva engine, ele cria um [contexto global de execução (global execution context)](https://www.javascripttutorial.net/javascript-execution-context/), e ele tem duas fases.
 
 - Criação | Creation
 - Execução | Execution
@@ -479,6 +482,9 @@ const myClass = class {
 
 > [JavaScript Hoisting - Programiz](https://www.programiz.com/javascript/hoisting)
 
+<br/>
+<br/>
+
 # Value vs Reference Assignment
 
 Em Js existem tipos que são copiados por valor e tipos que são copiados por referencia.
@@ -516,9 +522,11 @@ console.log(developer); // => true
 console.log(frontEndDev); // => true
 ```
 
-![](assets/img/values-in-memory.png)
-
 Valores primitivos são armazenados na Stack.
+
+<br/>
+
+![](assets/img/values-in-memory.png)
 
 Apesar de atribuirmos as variáveis leftHandFingers à rightHandFingers e developer à frontEndDev, o que é atribuído é o valor da variável, neste caso 5 e true, respectivamente.
 
@@ -530,6 +538,8 @@ rightHandFingers--;
 console.log(rightHandFingers); // => 4
 console.log(leftHandFingers); // => 5
 ```
+
+![](assets/img/values-in-memory-1.png)
 
 > Copiados por Referência
 
@@ -665,15 +675,79 @@ console.log(concatArray); // => (5) [2, 4, 6, 8, 10]
 
 > [How to differentiate between deep and shallow copies in JavaScript - freeCodeCamp](https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/)
 
+> [What is shallow copy and deep copy in JavaScript ? - GeeksforGeeks](https://www.geeksforgeeks.org/what-is-shallow-copy-and-deep-copy-in-javascript/)
+
 > [Shallow copy - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)
 
 > [Deep copy - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy)
 
-> [What is shallow copy and deep copy in JavaScript ? - GeeksforGeeks](https://www.geeksforgeeks.org/what-is-shallow-copy-and-deep-copy-in-javascript/)
-
 > [JavaScript's Memory Management Explained - https://felixgerschau.com](https://felixgerschau.com/javascript-memory-management/)
 
+<br/>
+<br/>
+
 # Destructuring
+
+A sintaxe do Destructuring Assignment é uma expressão em Js que nos permite extrair valores de arrays e propriedades de objetos e armazena-los em variáveis.
+
+> Objetos
+
+```js
+const person = {
+  name: 'John',
+  age: 35,
+  developer: true,
+};
+
+/*
+  name = person.name
+  age = person.age
+  developer = person.developer
+*/
+
+const { name, age, developer } = person;
+
+console.log(name); // => 'John'
+console.log(developer); // => true
+```
+
+> Arrays
+
+```js
+const technologies = ['JavaScript', 'HTML', 'CSS'];
+
+/*
+  js = technologies[0]
+  html = technologies[1]
+  css = technologies[2]
+*/
+
+const [js, html, css] = technologies;
+
+console.log(js); // => 'JavaScript'
+console.log(html); // => 'HTML'
+```
+
+Alguns valores podem ser ignorados com o uso do operador , .
+
+```js
+const technologies = ['JavaScript', 'HTML', 'CSS', 'React', 'Angular', 'Vue'];
+
+const [js, , css, react] = technologies;
+```
+
+Neste trecho de código os indices [1], [4] e [5] não foram atribuídos a variáveis.
+
+> ## Sugestão de leitura
+
+<br/>
+
+> [Destructuring assignment - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+
+> [JavaScript Object Destructuring - www.javascripttutorial.net](https://www.javascripttutorial.net/es6/javascript-object-destructuring/)
+
+<br/>
+<br/>
 
 # Rest | Spread Operator
 
