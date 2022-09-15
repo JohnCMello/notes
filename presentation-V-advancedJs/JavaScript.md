@@ -29,11 +29,11 @@
 
 A região dentro de um programa do qual a variável pode ser referenciada através de seu nome.
 
-O Escopo determina a acessibilidade, **_visibilidade_** , das variaveis.
+O Escopo determina a acessibilidade, **_visibilidade_** , das variáveis.
 
-Ele é o contexto atual de execução onde valores e expressões estão visíveis ou podem ser executadas. Se a viariavel ou a expressão nao faz parte do escopoatual, ela não estará disponivel para uso.
+Ele é o contexto atual de execução onde valores e expressões estão visíveis ou podem ser executadas. Se a variável ou a expressão nao faz parte do escopo atual, ela não estará disponível para uso.
 
-### Visibility
+## Visibility
 
 O termo visibilidade está mais relacionado à Classes. Ele é aplicado aos membros da classe (atributos ou métodos) e determina um controle de acesso a partir de fora da classe onde eles são declarados.
 
@@ -46,7 +46,7 @@ const isScopeDifferentThanVisibilityInTheory = scope !== visibility;
 
 ## Scope in JS
 
-JavaScript é uma linguagem de programação que tem escopo léxico, ou seja, é possivel acessar variavéis de um escopo externo a partir de um escopo interno, mas não vice-versa.
+JavaScript é uma linguagem de programação que tem escopo léxico, ou seja, é possível acessar variáveis de um escopo externo a partir de um escopo interno, mas não vice-versa.
 
 ![Lexical Scope in JS](./assets/img/Scope.png)
 
@@ -199,9 +199,9 @@ Variáveis declaradas com var não possuem escopo de bloco, e podem ser acessada
 console.log(message); // => 'from inside a block of code'
 ```
 
-**const** e **let** resolvem o problema de vazamento de variaveis declaradas com var em escopo de bloco.
+**const** e **let** resolvem o problema de vazamento de variáveis declaradas com var em escopo de bloco.
 
-Outro exemplo desse vazamento é a declaração da variavel de inicialização do **_for loop_**
+Outro exemplo desse vazamento é a declaração da variável de inicialização do **_for loop_**
 
 ```js
 for(var i = 0, i < 10, i++){}
@@ -230,7 +230,7 @@ console.log(i) // => ReferenceError: i is not defined
 
 # Closures in JS
 
-Closures são funções que fazem referência a variáveis declaradas no seu escopo lexico, transformando-as em variaveis privadas e persistindo seus valores.
+Closures são funções que fazem referência a variáveis declaradas no seu escopo léxico, transformando-as em variáveis privadas e persistindo seus valores.
 
 Qualquer função em JS pode ser uma closure.
 
@@ -268,9 +268,9 @@ birthday(35); // => Hoje é meu aniversário de 35 anos.
 birthday(27); // => Hoje é meu aniversário de 27 anos.
 ```
 
-Neste trecho de código, a função birthday cria uma variável local, age, e também a função celebrate, que por sua vez cria uma variavel local, birthdayMessage.
+Neste trecho de código, a função birthday cria uma variável local, age, e também a função celebrate, que por sua vez cria uma variável local, birthdayMessage.
 
-celebrate é a função mais interna e só está disponivel no escopo da função birthday.
+celebrate é a função mais interna e só está disponível no escopo da função birthday.
 
 A função celebrate tem acesso a variável age, definida em birthday, mas birthday nao tem acesso a birthdayMessage.
 
@@ -309,13 +309,13 @@ Agora, em vez de executarmos a função celebrate dentro de birthday, birthday r
 
 Como em JS as funções são First-Class Citizens, podemos retornar uma função a partir de outra função.
 
-Fora da função birthday, nós atribuimos à johnsBday e juliasBday o retorno de birthday com os seus respectivos argumentos.
+Fora da função birthday, nós atribuímos à johnsBday e juliasBday o retorno de birthday com os seus respectivos argumentos.
 
 Depois executamos as funções johnsBday e juliasBday.
 
 Como já sabemos, em JS, uma variável local só existe durante o tempo de execução da função, isto é, ao fim da execução de birthday, as variáveis person e age não existem mais.
 
-Neste caso, nós executamos johnsBday | juliasBday que faz referência ao retorno de birthday, que é a função celebrate, e as variaveis ainda persistem.
+Neste caso, nós executamos johnsBday | juliasBday que faz referência ao retorno de birthday, que é a função celebrate, e as variáveis ainda persistem.
 
 Uma Closure é uma função que preserva o escopo externo a ela, dentro do seu escopo.
 
@@ -335,12 +335,12 @@ Uma Closure é uma função que preserva o escopo externo a ela, dentro do seu e
 
 # Hoisting
 
-Quando um codigo JS é executado pala sua respectiva engine, ele cria um [contexto global de execução (global execution context)](https://www.javascripttutorial.net/javascript-execution-context/), e ele tem duas fases.
+Quando um código JS é executado pala sua respectiva engine, ele cria um [contexto global de execução (global execution context)](https://www.javascripttutorial.net/javascript-execution-context/), e ele tem duas fases.
 
 - Criação | Creation
 - Execução | Execution
 
-Durante a fase de criação, todas as declaraçoes de variáveis e funçoes são 'içadas'. Esse içamento é conhecido como Hoisting.
+Durante a fase de criação, todas as declarações de variáveis e funções são 'içadas'. Esse içamento é conhecido como Hoisting.
 
 Variáveis definidas com var são "movidas para o topo" e inicializadas com o valor de undefined por padrão.
 
@@ -520,7 +520,7 @@ console.log(frontEndDev); // => true
 
 Valores primitivos são armazenados na Stack.
 
-Apesar de atrubuirmos as variáveis leftHandFingers à rightHandFingers e developer à frontEndDev, o que é atribuido é o valor da variável, neste caso 5 e true, respectivamente.
+Apesar de atribuirmos as variáveis leftHandFingers à rightHandFingers e developer à frontEndDev, o que é atribuído é o valor da variável, neste caso 5 e true, respectivamente.
 
 Vamos imaginar que algo acontece com rightHandFingers. (bata na madeira)
 
@@ -558,7 +558,7 @@ console.log(skills); // => ['cooking', 'dancing']
 
 ![](assets/img/values-in-memory-3.png)
 
-Caso uma variável, que tem como valor um objeto, seja atribuida a outra variável, o valor passado é a referência do endereço na Heap.
+Caso uma variável, que tem como valor um objeto, seja atribuída a outra variável, o valor passado é a referência do endereço na Heap.
 
 ```js
 likes.push('music');
@@ -580,7 +580,7 @@ console.log(skills === likes); // => false
 
 ![](assets/img/values-in-memory-5.png)
 
-Embora o "mesmo" array seja atribuido, uma referência é independente da outra. As variáveis apontam para endereços diferente no Heap.
+Embora o "mesmo" array seja atribuído, uma referência é independente da outra. As variáveis apontam para endereços diferente no Heap.
 
 > Copiando Objetos
 
@@ -599,7 +599,7 @@ const jsonParsePerson = JSON.parse(JSON.stringify(person));
 
 const objectAssignPerson = Object.assign({}, person);
 
-// Object.assign ainda pode receber um terceiro parametro (objeto) que permite adicionar ou sobrescrever propriedades
+// Object.assign ainda pode receber um terceiro parâmetro (objeto) que permite adicionar ou sobrescrever propriedades
 const julia = Object.assign({}, person, {
   name: 'Julia',
   age: 27,
