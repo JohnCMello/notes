@@ -23,6 +23,8 @@
 <br/>
 <br/>
 
+---
+
 # Scope
 
 ## Scope
@@ -228,6 +230,8 @@ console.log(i) // => ReferenceError: i is not defined
 <br/>
 <br/>
 
+---
+
 # Closures in JS
 
 Closures são funções que fazem referência a variáveis declaradas no seu escopo léxico, transformando-as em variáveis privadas e persistindo seus valores.
@@ -325,9 +329,9 @@ Uma Closure é uma função que preserva o escopo externo a ela dentro do seu es
 
 > [Closures - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 
-> [Private Members in JavaScript - www.crockford.com](http://www.crockford.com/javascript/private.html)
+> [Private Members in JavaScript - crockford.com](http://www.crockford.com/javascript/private.html)
 
-> [JavaScript Closures - www.tutorialsteacher.com](https://www.tutorialsteacher.com/javascript/closure-in-javascript)
+> [JavaScript Closures - tutorialsteacher.com](https://www.tutorialsteacher.com/javascript/closure-in-javascript)
 
 > [Javascript: Mas afinal, o que são closures? - Medium](https://medium.com/@stephanowallace/javascript-mas-afinal-o-que-s%C3%A3o-closures-4d67863ca9fc)
 
@@ -335,6 +339,8 @@ Uma Closure é uma função que preserva o escopo externo a ela dentro do seu es
 
 <br/>
 <br/>
+
+---
 
 # Hoisting
 
@@ -476,7 +482,7 @@ const myClass = class {
 
 > [JavaScript Hoisting - W3Schools](https://www.w3schools.com/js/js_hoisting.asp)
 
-> [JavaScript Hoisting - www.javascripttutorial.net](https://www.javascripttutorial.net/javascript-hoisting/)
+> [JavaScript Hoisting - javascripttutorial.net](https://www.javascripttutorial.net/javascript-hoisting/)
 
 > [O que é Hoisting em Javascript? - Medium](https://medium.com/devzera/o-que-%C3%A9-hoisting-em-javascript-b8c629178518)
 
@@ -484,6 +490,8 @@ const myClass = class {
 
 <br/>
 <br/>
+
+---
 
 # Value vs Reference Assignment
 
@@ -655,21 +663,21 @@ console.log(concatArray); // => (5) [2, 4, 6, 8, 10]
 
 > [Reference Vs Value - Most People Don't Understand This - Web Dev Simplified Blog](https://blog.webdevsimplified.com/2021-03/js-reference-vs-value/)
 
-> [Quick Tip: How JavaScript References Work - sitepoint](https://www.sitepoint.com/how-javascript-references-work/#:~:text=The%20Bottom%20Line%20on%20JavaScript%20References&text=On%20variable%20assignment%2C%20the%20scalar,at%20other%20variables%2C%20or%20references.)
+> [Quick Tip: How JavaScript References Work - sitepoint.com](https://www.sitepoint.com/how-javascript-references-work/#:~:text=The%20Bottom%20Line%20on%20JavaScript%20References&text=On%20variable%20assignment%2C%20the%20scalar,at%20other%20variables%2C%20or%20references.)
 
 > [The Difference Between Values and References in JavaScript - dmitripavlutin.com](https://dmitripavlutin.com/value-vs-reference-javascript/)
 
-> [JavaScript Primitive vs. Reference Values - www.javascripttutorial.net](https://www.javascripttutorial.net/javascript-primitive-vs-reference-values/)
+> [JavaScript Primitive vs. Reference Values - javascripttutorial.net](https://www.javascripttutorial.net/javascript-primitive-vs-reference-values/)
 
 > [How to get a grip on reference vs value in JavaScript - freeCodeCamp](https://www.freecodecamp.org/news/how-to-get-a-grip-on-reference-vs-value-in-javascript-cba3f86da223/)
 
-> [3 Ways to Copy Objects in JavaScript - www.javascripttutorial.net](https://www.javascripttutorial.net/object/3-ways-to-copy-objects-in-javascript/)
+> [3 Ways to Copy Objects in JavaScript - javascripttutorial.net](https://www.javascripttutorial.net/object/3-ways-to-copy-objects-in-javascript/)
 
 > [Copying Objects in JavaScript - DigitalOcean](https://www.digitalocean.com/community/tutorials/copying-objects-in-javascript)
 
 > [3 Ways to Copy or Clone Array in Javascript - https://holycoders.com](https://holycoders.com/javscript-copy-array/)
 
-> [ES6 Way to Clone an Array - https://holycoders.com](https://www.samanthaming.com/tidbits/35-es6-way-to-clone-an-array/)
+> [ES6 Way to Clone an Array - holycoders.com](https://www.samanthaming.com/tidbits/35-es6-way-to-clone-an-array/)
 
 > [How to clone an array in JavaScript - freeCodeCamp](https://www.freecodecamp.org/news/how-to-clone-an-array-in-javascript-1d3183468f6a/)
 
@@ -681,14 +689,34 @@ console.log(concatArray); // => (5) [2, 4, 6, 8, 10]
 
 > [Deep copy - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy)
 
-> [JavaScript's Memory Management Explained - https://felixgerschau.com](https://felixgerschau.com/javascript-memory-management/)
+> [JavaScript's Memory Management Explained - felixgerschau.com](https://felixgerschau.com/javascript-memory-management/)
 
 <br/>
 <br/>
+
+---
 
 # Destructuring
 
 A sintaxe do Destructuring Assignment é uma expressão em Js que nos permite extrair valores de arrays e propriedades de objetos e armazena-los em variáveis.
+
+> Arrays
+
+```js
+const technologies = ['JavaScript', 'HTML', 'CSS'];
+
+/*
+  js = technologies[0]
+  html = technologies[1]
+  css = technologies[2]
+*/
+
+const [js, html, css] = technologies;
+
+console.log(js); // => 'JavaScript'
+console.log(html); // => 'HTML'
+console.log(css); // => 'CSS'
+```
 
 > Objetos
 
@@ -708,35 +736,321 @@ const person = {
 const { name, age, developer } = person;
 
 console.log(name); // => 'John'
+console.log(age); // => 35
 console.log(developer); // => true
 ```
 
-> Arrays
+<br>
+<br>
+
+Se tentarmos atribuir um valor inexistente a uma variável, ela recebe o valor de undefined.
+
+- Arrays
 
 ```js
 const technologies = ['JavaScript', 'HTML', 'CSS'];
 
-/*
-  js = technologies[0]
-  html = technologies[1]
-  css = technologies[2]
-*/
+const [js, html, css, react] = technologies;
 
-const [js, html, css] = technologies;
+console.log(react); // => undefined
+```
+
+- Objetos
+
+```js
+const person = {
+  name: 'John',
+  age: 35,
+  developer: true,
+};
+
+const { name, age, developer, tall } = person;
+
+console.log(tall); // => undefined
+```
+
+<br>
+
+Podemos extrair valores singulares e armazenar os valores restantes.
+
+- Arrays
+
+```js
+const technologies = ['JavaScript', 'HTML', 'CSS', 'React', 'Angular', 'Vue'];
+
+const [js, html, css, ...frameworks] = technologies;
 
 console.log(js); // => 'JavaScript'
 console.log(html); // => 'HTML'
+console.log(css); // => 'CSS'
+console.log(frameworks); // => (3) ['React', 'Angular', 'Vue']
 ```
 
-Alguns valores podem ser ignorados com o uso do operador , .
+- Objetos
+
+```js
+const person = {
+  name: 'John',
+  age: 35,
+  developer: true,
+  frontEndDev: true,
+  company: 'Valtech',
+};
+
+const { name, age, ...workInfo } = person;
+
+console.log(name); // => 'John'
+console.log(age); // =>35
+console.log(workInfo); // => {developer: true, frontEndDev: true, company: 'Valtech'}
+```
+
+<br>
+
+Alguns valores podem ser ignorados.
+
+- Arrays
+
+Com o uso do operador <code>,</code> (vírgula | comma) .
 
 ```js
 const technologies = ['JavaScript', 'HTML', 'CSS', 'React', 'Angular', 'Vue'];
 
 const [js, , css, react] = technologies;
+
+console.log(js); // => 'JavaScript'
+console.log(css); // => 'CSS'
+console.log(react); // => 'React'
 ```
 
 Neste trecho de código os indices [1], [4] e [5] não foram atribuídos a variáveis.
+
+- Objetos
+
+```js
+const person = {
+  name: 'John',
+  age: 35,
+  developer: true,
+  frontEndDev: true,
+  company: 'Valtech',
+};
+
+const { name, age, company } = person;
+
+console.log(name); // => 'John'
+console.log(age); // =>35
+console.log(company); // => 'Valtech'
+```
+
+<br>
+
+Variáveis podem ser declaradas e inicializadas posteriormente.
+
+- Arrays
+-
+
+```js
+const js,html, css, react, angular, vue
+
+function webdevTechStack(){
+  const technologies = ['JavaScript','HTML','CSS','React','Angular','Vue'];
+
+  return technologies
+}
+
+[js,html, , , angular, vue] = webdevTechStack();
+
+console.log(js); // => 'JavaScript'
+console.log(react); // => undefined
+console.log(vue); // => 'Vue'
+```
+
+- Objetos
+
+```js
+const name, age, frontEndDev;
+
+const person = {
+  name: 'John',
+  age: 35,
+  developer: true,
+  frontEndDev: true,
+  company: 'Valtech'
+};
+
+// a expressão precisa ser executada dentro de ()
+({name, age,frontEndDev } = person)
+
+console.log(name); // => 'John'
+console.log(age); // => 35
+console.log(frontEndDev); // => true
+```
+
+Expressão não executada:
+
+```js
+const person = {
+  name: 'John',
+  age: 35,
+  developer: true,
+  frontEndDev: true,
+  company: 'Valtech'
+};
+
+{name, age,frontEndDev } = person; // => Uncaught SyntaxError: Unexpected token '='
+```
+
+<br>
+
+Valores padrão podem ser atribuídos.
+
+- Arrays
+
+```js
+function webdevTechStack() {
+  const technologies = ['JavaScript', 'HTML', 'CSS', 'React', 'Angular', 'Vue'];
+
+  return technologies;
+}
+
+const [js, html, css, react, angular, vue, docker = 'Docker'] =
+  webdevTechStack();
+
+console.log(js); // => 'JavaScript'
+console.log(angular); // => 'Angular'
+console.log(docker); // => 'Docker'
+```
+
+- Objetos
+
+```js
+function webDev() {
+  const person = {
+    name: 'John',
+    age: 35,
+    developer: true,
+    frontEndDev: true,
+    company: 'Valtech',
+  };
+
+  return person;
+}
+
+const { name, age, frontEndDev, dogsName = 'Cacau' } = webDev();
+
+console.log(name); // => 'John'
+console.log(developer); // => true
+console.log(dogsName); // => 'Cacau'
+```
+
+Valores padrão só podem ser atribuídos caso a variável não exista ou o seu valor seja undefined.
+Quaisquer outros valores incluindo null, false ou 0 são ignorados pelo Default assignment.
+
+- Arrays
+
+```js
+function webdevTechStack() {
+  const technologies = ['JavaScript', 'HTML', 'CSS'];
+
+  return technologies;
+}
+
+const [js = 'javascript', html, css] = webdevTechStack();
+
+console.log(js); // => 'JavaScript'
+```
+
+- Objetos
+
+```js
+function webDev() {
+  const person = {
+    name: 'John',
+    age: 35,
+    developer: true,
+  };
+  return person;
+}
+
+const { name = 'Mello', age, developer } = webDev();
+
+console.log(name); // => 'John'
+```
+
+<br>
+
+Se as funções webdevTechStack e webDev retornassem outro valor que não um array ou um objeto, neste cenário onde array & objeto são esperados, uma exceção seria lançada.
+
+```js
+function webdevTechStack() {
+  const technologies = null;
+  return technologies;
+}
+
+function webDev() {
+  const person = null
+  return person;
+
+
+const [js, html, css] = webdevTechStack(); // => Uncaught TypeError: webdevTechStack is not a function or its return value is not iterable
+
+const {name, age, developer} = webDev(); // => Uncaught TypeError: webDev is not a function or its return value is not iterable
+```
+
+A sintaxe de Array Destructuring também se aplica a arrays e objetos aninhados.
+
+- Arrays
+
+```js
+const person = ['John', 'Mello', ['JavaScript', 'HTML', 'CSS']];
+
+const [firstName, lastName, [...technologies]] = person;
+
+console.log(firstName); // => 'John'
+console.log(lastName); // => 'Mello'
+console.log(technologies); // => (3) ['JavaScript', 'HTML', 'CSS']
+```
+
+- Objetos
+
+```js
+const person = {
+  name: 'John',
+  age: 35,
+  workInfo: {
+    developer: true,
+    frontEndDev: true,
+    company: 'Valtech',
+  },
+};
+
+const {
+  name,
+  age,
+  workInfo: { ...workInfo },
+} = person;
+
+console.log(name); // => 'John'
+console.log(age); // => 'Mello'
+console.log(workInfo); // => {developer: true, frontEndDev: true, company: 'Valtech'}
+```
+
+A sintaxe de Object Destructuring ainda nos permite definir aliases para os valores obtidos a partir do objeto original com o uso do operador <code>:</code> (dois pontos | colon).
+
+```js
+function webDev() {
+  const person = {
+    name: 'John',
+    age: 35,
+    developer: true,
+  };
+  return person;
+}
+
+const { name: firstName, age, developer } = webDev();
+
+console.log(firstName); // => 'John'
+```
 
 > ## Sugestão de leitura
 
@@ -744,10 +1058,24 @@ Neste trecho de código os indices [1], [4] e [5] não foram atribuídos a vari�
 
 > [Destructuring assignment - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
-> [JavaScript Object Destructuring - www.javascripttutorial.net](https://www.javascripttutorial.net/es6/javascript-object-destructuring/)
+> [ES6 Destructuring Assignment - javascripttutorial.net](https://www.javascripttutorial.net/es6/destructuring/)
+
+> [JavaScript Object Destructuring - javascripttutorial.net](https://www.javascripttutorial.net/es6/javascript-object-destructuring/)
+
+> [How to Use Array and Object Destructuring in JavaScript - freeCodeCamp](https://www.freecodecamp.org/news/array-and-object-destructuring-in-javascript/)
+
+> [Destructuring in JavaScript – How to Destructure Arrays and Objects - freeCodeCamp](https://www.freecodecamp.org/news/destructuring-patterns-javascript-arrays-and-objects/)
+
+> [Destructuring assignment - javascript.info](https://javascript.info/destructuring-assignment)
+
+> [JavaScript: Destructuring assignment - devmedia.com.br](https://www.devmedia.com.br/javascript-destructuring-assignment/41201)
+
+> [JavaScript · Destructuring Assignment with Default Values - dzaiste.net](https://zaiste.net/posts/javascript-destructuring-assignment-default-values/)
 
 <br/>
 <br/>
+
+---
 
 # Rest | Spread Operator
 
