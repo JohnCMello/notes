@@ -1,33 +1,31 @@
 # JavaScript - Advanced Concepts
 
-### [X] - Scope (global / local | function / block - var / let / const)
-
-### [X] - Closures in JS
-
-### [X] - Hoisting
-
-### [X] - Value vs Reference Assignment
-
-### [ ] - Destructuring
-
-### [ ] - Rest | Spread Operator
-
-### [ ] - this
-
-### [ ] - Currying
-
-### [ ] - Prototype
-
-### [ ] - async
+- [JavaScript - Advanced Concepts](#javascript---advanced-concepts)
+- [1. Scope](#1-scope)
+  - [1.1. Scope](#11-scope)
+  - [1.2. Visibility](#12-visibility)
+  - [1.3. Scope in JS](#13-scope-in-js)
+    - [1.3.1. Global Scope](#131-global-scope)
+    - [1.3.2. Function | Local Scope](#132-function--local-scope)
+    - [1.3.3. Block scope](#133-block-scope)
+- [2. Closures in JS](#2-closures-in-js)
+- [3. Hoisting](#3-hoisting)
+- [4. Value vs Reference Assignment](#4-value-vs-reference-assignment)
+- [5. Destructuring](#5-destructuring)
+- [Rest | Spread Operator](#rest--spread-operator)
+- [this](#this)
+- [Currying](#currying)
+- [Prototype](#prototype)
+- [async](#async)
 
 <br/>
 <br/>
 
 ---
 
-# Scope
+# 1. Scope
 
-## Scope
+## 1.1. Scope
 
 A região dentro de um programa do qual a variável pode ser referenciada através de seu nome.
 
@@ -35,7 +33,7 @@ O Escopo determina a acessibilidade, **_visibilidade_** , das variáveis.
 
 Ele é o contexto atual de execução onde valores e expressões estão visíveis ou podem ser executadas. Se a variável ou a expressão nao faz parte do escopo atual, ela não estará disponível para uso.
 
-## Visibility
+## 1.2. Visibility
 
 O termo visibilidade está mais relacionado à Classes. Ele é aplicado aos membros da classe (atributos ou métodos) e determina um controle de acesso a partir de fora da classe onde eles são declarados.
 
@@ -46,7 +44,7 @@ const isScopeDifferentThanVisibilityInTheory = scope !== visibility;
 // => true
 ```
 
-## Scope in JS
+## 1.3. Scope in JS
 
 JavaScript é uma linguagem de programação que tem escopo léxico, ou seja, é possível acessar variáveis de um escopo externo a partir de um escopo interno, mas não vice-versa.
 
@@ -78,7 +76,7 @@ Existem 3 escopos em JS:
 
 <br>
 
-> ### Global Scope
+### 1.3.1. Global Scope
 
 É o escopo padrão para todo o código. O mais externo.
 
@@ -128,7 +126,7 @@ function sayMyName() {
 }
 ```
 
-> ### Function | Local Scope
+### 1.3.2. Function | Local Scope
 
 Uma declaração de função em JS cria um novo escopo.
 
@@ -168,7 +166,7 @@ function sayMyName() {
 }
 ```
 
-> ### Block scope
+### 1.3.3. Block scope
 
 Anteriormente ao ES6 (2015), existiam somente o escopo Global e o Escopo Local | Escopo de Função.
 
@@ -213,7 +211,7 @@ for(let i = 0, i < 10, i++){}
 console.log(i) // => ReferenceError: i is not defined
 ```
 
-> ## Sugestão de leitura
+> ## 1.4. Sugestão de leitura
 
 <br/>
 
@@ -232,7 +230,7 @@ console.log(i) // => ReferenceError: i is not defined
 
 ---
 
-# Closures in JS
+# 2. Closures in JS
 
 Closures são funções que fazem referência a variáveis declaradas no seu escopo léxico, transformando-as em variáveis privadas e persistindo seus valores.
 
@@ -342,7 +340,7 @@ Uma Closure é uma função que preserva o escopo externo a ela dentro do seu es
 
 ---
 
-# Hoisting
+# 3. Hoisting
 
 Quando um código JS é executado pela sua respectiva engine, ele cria um [contexto global de execução (global execution context)](https://www.javascripttutorial.net/javascript-execution-context/), e ele tem duas fases.
 
@@ -493,7 +491,7 @@ const myClass = class {
 
 ---
 
-# Value vs Reference Assignment
+# 4. Value vs Reference Assignment
 
 Em Js existem tipos que são copiados por valor e tipos que são copiados por referencia.
 
@@ -696,7 +694,7 @@ console.log(concatArray); // => (5) [2, 4, 6, 8, 10]
 
 ---
 
-# Destructuring
+# 5. Destructuring
 
 A sintaxe do Destructuring Assignment é uma expressão em Js que nos permite extrair valores de arrays e propriedades de objetos e armazena-los em variáveis.
 
