@@ -10,9 +10,21 @@
     - [1.3.3. Block scope](#133-block-scope)
 - [2. Closures in JS](#2-closures-in-js)
 - [3. Hoisting](#3-hoisting)
+  - [3.1. let / const](#31-let--const)
+  - [3.2. Classes](#32-classes)
+  - [3.3. Function e Class expression](#33-function-e-class-expression)
 - [4. Value vs Reference Assignment](#4-value-vs-reference-assignment)
-- [5. Destructuring](#5-destructuring)
-- [Rest | Spread Operator](#rest--spread-operator)
+  - [4.1. Copiados por Valor](#41-copiados-por-valor)
+  - [4.2. Copiados por Referência](#42-copiados-por-referência)
+  - [4.3. Copiando Objetos](#43-copiando-objetos)
+  - [4.4 Copiando Arrays](#44-copiando-arrays)
+- [5. Spread Operator | Rest Parameters](#5-spread-operator--rest-parameters)
+  - [5.1. Spread Operator](#51-spread-operator)
+  - [5.2. Rest Parameters](#52-rest-parameters)
+- [6. Destructuring](#6-destructuring)
+  - [6.1. Arrays](#61-arrays)
+  - [6.2. Objetos](#62-objetos)
+  - [6.3. Exemplos](#63-exemplos)
 - [this](#this)
 - [Currying](#currying)
 - [Prototype](#prototype)
@@ -93,7 +105,7 @@ function sayMyName() {
 
 Variáveis declaradas fora de uma função são declaradas no escopo global.
 
-Seja ela declarada com var | let | const.
+Seja ela declarada com <code> ar</code> | <code>let</code> | <code>const</code>.
 
 ```js
 // myName, herName, myDogsName são acessíveis no escopo global.
@@ -139,7 +151,7 @@ function sayMyName() {
 
 Variáveis definidas dentro da função não são acessíveis, "visíveis", de fora dela.
 
-Seja ela declarada com var | let | const.
+Seja ela declarada com <code>var</code> | <code>let</code> | <code>const</code>.
 
 ```js
 // myName, herName, myDogsName não são acessíveis no escopo global.
@@ -172,9 +184,10 @@ Anteriormente ao ES6 (2015), existiam somente o escopo Global e o Escopo Local |
 
 Com a introdução de let e const, foi definido mais um tipo de escopo, o escopo de bloco
 
-Um bloco de código em Js é definido por código escrito dentro de **{...}**
+Um bloco de código em Js é definido por código escrito dentro de <code>{ }</code>
 
 ```js
+// inicio de bloco
 {
   let message = `from inside a block of code`;
   const otherMessase = `from inside the same block of code`;
@@ -182,12 +195,13 @@ Um bloco de código em Js é definido por código escrito dentro de **{...}**
   console.log(message); // => 'from inside a block of code'
   console.log(otherMessase); // => 'from inside the same block of code'
 }
+//fim de bloco
 
 console.log(message); // => ReferenceError: message is not defined
 console.log(otherMessase); // => ReferenceError: otherMessase is not defined
 ```
 
-Variáveis declaradas com var não possuem escopo de bloco, e podem ser acessadas de fora do bloco de código.
+Variáveis declaradas com <code>var</code> não possuem escopo de bloco, e podem ser acessadas de fora do bloco de código.
 
 ```js
 {
@@ -199,9 +213,9 @@ Variáveis declaradas com var não possuem escopo de bloco, e podem ser acessada
 console.log(message); // => 'from inside a block of code'
 ```
 
-**const** e **let** resolvem o problema de vazamento de variáveis declaradas com var em escopo de bloco.
+<code>const</code> e <code>let</code> resolvem o problema de vazamento de variáveis declaradas com var em escopo de bloco.
 
-Outro exemplo desse vazamento é a declaração da variável de inicialização do **_for loop_**
+Outro exemplo desse vazamento é a declaração da variável de inicialização do <code>for</code> loop
 
 ```js
 for(var i = 0, i < 10, i++){}
@@ -211,7 +225,7 @@ for(let i = 0, i < 10, i++){}
 console.log(i) // => ReferenceError: i is not defined
 ```
 
-> ## 1.4. Sugestão de leitura
+> ## Sugestão de leitura
 
 <br/>
 
@@ -375,7 +389,7 @@ console.log(myName); // => 'John'
 
 A referência para a variável myName é criada em memória, o escopo é definido, e seu valor é inicializado como undefined.
 
-Caso tentemos acessar uma variável inicializada sem ter sido declarada antes, obtemos um erro de referência.
+Caso tentemos acessar uma variável inicializada que não foi declarada antes, obtemos um erro de referência.
 
 ```js
 console.log(myName); // => ReferenceError, o interpretador não conhece myName.
@@ -411,7 +425,7 @@ function sayMyName(name) {
 console.log(sayMyName(`John`));
 ```
 
-> ### let / const
+## 3.1. let / const
 
 <br>
 Variáveis declaradas com let | const também são içadas, mas não são inicializadas com o valor padrão de undefined.
@@ -430,7 +444,7 @@ console.log(myAge); // => ReferenceError
 const myAge = 35;
 ```
 
-> ### Classes
+## 3.2. Classes
 
 - Class declaration
 
@@ -444,7 +458,7 @@ const p = new Pessoa(); // => ReferenceError
 class Pessoa {}
 ```
 
-> ### Function e Class expression
+## 3.3. Function e Class expression
 
 <br>
 
@@ -456,20 +470,20 @@ console.log(myFunction); // => ReferenceError
 const myFunction = function () {};
 ```
 
-O mesmo acontece utilizando a sintaxe de Arrow functions
-
-```js
-console.log(myOtherFunction); // => ReferenceError
-
-const myOtherFunction = () => {};
-```
-
 ```js
 console.log(myClass) // => ReferenceError
 
 const myClass = class {
   constructor()
 };
+```
+
+O mesmo acontece utilizando a sintaxe de Arrow functions
+
+```js
+console.log(myOtherFunction); // => ReferenceError
+
+const myOtherFunction = () => {};
 ```
 
 > ## Sugestão de leitura
@@ -510,7 +524,7 @@ Em Js existem tipos que são copiados por valor e tipos que são copiados por re
 
 Tipos primitivos são copiados por valor e objetos por referência.
 
-> Copiados por Valor
+## 4.1. Copiados por Valor
 
 ```js
 const name = `John`;
@@ -547,7 +561,7 @@ console.log(leftHandFingers); // => 5
 
 ![](assets/img/values-in-memory-1.png)
 
-> Copiados por Referência
+## 4.2. Copiados por Referência
 
 ```js
 const name = 'John'
@@ -598,7 +612,7 @@ console.log(skills === likes); // => false
 
 Embora o "mesmo" array seja atribuído, uma referência é independente da outra. As variáveis apontam para endereços diferente no Heap.
 
-> Copiando Objetos
+## 4.3. Copiando Objetos
 
 ```js
 const person = {
@@ -633,7 +647,7 @@ console.log(objectAssignPerson); // => {species: 'human', name: 'John', age: 35}
 console.log(julia); // => {species: 'human', name: 'Julia', age: 27, hair: 'blue'}
 ```
 
-> Copiando Arrays
+## 4.4 Copiando Arrays
 
 ```js
 const numbersArray = [2, 4, 6, 8, 10];
@@ -690,15 +704,122 @@ console.log(concatArray); // => (5) [2, 4, 6, 8, 10]
 > [JavaScript's Memory Management Explained - felixgerschau.com](https://felixgerschau.com/javascript-memory-management/)
 
 <br/>
+
+---
+
+# 5. Spread Operator | Rest Parameters
+
+Os operadores Spread e Rest tem sintaxe idêntica,<code>...</code>, mas eles diferem em funcionalidade.
+
+A principal diferença entre eles é que o Rest Parameters é utilizado para armazenar o resto de uma lista de valores ou argumentos de uma função em um Array e o Spread Operator é utilizado para expandir iteráveis em valores individuais.
+
+## 5.1. Spread Operator
+
+- Arrays
+
+```js
+const frameworks = ['React', 'Angular', 'Vue'];
+
+const technologies = ['HTML', 'CSS', 'JavaScript', ...frameworks];
+
+console.log(frameworks); // => (6) ['HTML', 'CSS', 'JavaScript','React', 'Angular', 'Vue']
+```
+
+- Objetos
+
+```js
+const workInfo = {
+  developer: true,
+  frontEndDev: true,
+  company: 'Valtech',
+};
+
+const johnDev = {
+  name: 'John',
+  age: 35,
+  ...workInfo,
+};
+
+console.log(johnDev); // => {name: 'John', age: 35, developer: true, frontEndDev: true, company: 'Valtech'}
+```
+
+- Strings
+
+```js
+const message = 'Hello World!';
+
+const letters = [...message];
+
+console.log(letters); // => ['H', 'e', 'l','l' ,'o' ,' ' ,'W', 'o', 'r' ,'l' ,'d' , '!']
+```
+
+## 5.2. Rest Parameters
+
+```js
+function sum(...numbers) {
+  return numbers.reduce((acc, cur) => acc + cur, 0);
+}
+
+console.log(sum(2, 4, 6, 8, 10)); // => 30
+```
+
+```js
+function petOwner(person, ...pets) {
+  console.log(`Olá, meu nome é ${person}`);
+  console.log(
+    `Eu tenho ${pets.length} ${pets.length <= 1 ? 'pet.' : 'pets.'} `
+  );
+  console.log(
+    `${pets.length <= 1 ? 'O nome dele(a) é:' : 'Os nomes deles(as) são:'} `
+  );
+
+  for (const pet of pets) {
+    console.log(pet);
+  }
+}
+
+petOwner('John', 'Cacau');
+// => 'Olá, meu nome é John'
+// => 'Eu tenho um pet.'
+// => 'O nome dele(a) é:'
+// => 'Cacau'
+```
+
+> ## Sugestão de leitura
+
+<br/>
+
+> [Rest parameters - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+
+> [JavaScript: Operadores Rest e Spread - devMedia.com.br](https://www.devmedia.com.br/javascript-operadores-rest-e-spread/41200)
+
+> [JavaScript Rest vs Spread Operator – What’s the Difference? - freeCodeCamp](https://www.freecodecamp.org/news/javascript-rest-vs-spread-operators/)
+
+> [Rest parameters and spread syntax - javascript.info](https://javascript.info/rest-parameters-spread)
+
+> [An Easy Guide to Object Rest/Spread Properties in JavaScript - dmitripavlutin.com](https://dmitripavlutin.com/object-rest-spread-properties-javascript/)
+
+> [Spread operator vs rest parameters - Medium](https://medium.com/trainingcenter/spread-operator-vs-rest-parameters-f8688d8e1761)
+
+> [Como funcionam o Rest e o Spread Operator- horadecodar.com.br](https://www.horadecodar.com.br/2019/03/19/como-funcionam-o-rest-e-o-spread-operator/)
+
+> [Spread e Rest operators em JavaScript - blog.cod3r.com.br](https://blog.cod3r.com.br/spread-rest/)
+
+> [What is the rest parameter and spread operator in JavaScript - GeeksforGeeks](https://www.geeksforgeeks.org/what-is-the-rest-parameter-and-spread-operator-in-javascript/)
+
+> [JavaScript Rest Parameters - javascripttutorial.net](https://www.javascripttutorial.net/es6/javascript-rest-parameters/)
+
+> [JJavaScript Object Spread - javascripttutorial.net](https://www.javascripttutorial.net/es-next/javascript-object-spread/)
+
 <br/>
 
 ---
 
-# 5. Destructuring
+# 6. Destructuring
 
 A sintaxe do Destructuring Assignment é uma expressão em Js que nos permite extrair valores de arrays e propriedades de objetos e armazena-los em variáveis.
 
-> Arrays
+## 6.1. Arrays
 
 ```js
 const technologies = ['JavaScript', 'HTML', 'CSS'];
@@ -716,7 +837,7 @@ console.log(html); // => 'HTML'
 console.log(css); // => 'CSS'
 ```
 
-> Objetos
+## 6.2. Objetos
 
 ```js
 const person = {
@@ -740,6 +861,8 @@ console.log(developer); // => true
 
 <br>
 <br>
+
+## 6.3. Exemplos
 
 Se tentarmos atribuir um valor inexistente a uma variável, ela recebe o valor de undefined.
 
@@ -995,7 +1118,7 @@ const [js, html, css] = webdevTechStack(); // => Uncaught TypeError: webdevTechS
 const {name, age, developer} = webDev(); // => Uncaught TypeError: webDev is not a function or its return value is not iterable
 ```
 
-A sintaxe de Array Destructuring também se aplica a arrays e objetos aninhados.
+A sintaxe de Destructuring também se aplica a arrays e objetos aninhados.
 
 - Arrays
 
@@ -1074,8 +1197,6 @@ console.log(firstName); // => 'John'
 <br/>
 
 ---
-
-# Rest | Spread Operator
 
 # this
 
