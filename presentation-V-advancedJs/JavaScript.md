@@ -31,7 +31,6 @@
 - [async](#async)
 
 <br/>
-<br/>
 
 ---
 
@@ -239,7 +238,8 @@ console.log(i) // => ReferenceError: i is not defined
 
 > [JavaScript Variable Scopes - javascripttutorial.net](https://www.javascripttutorial.net/javascript-variable-scope/#)
 
-<br/>
+**[⬆ Voltar para o topo](#javascript---advanced-concepts)**
+
 <br/>
 
 ---
@@ -349,7 +349,8 @@ Uma Closure é uma função que preserva o escopo externo a ela dentro do seu es
 
 > [How to Use Closures in JavaScript – A Beginner's Guide - freeCodeCamp](https://www.freecodecamp.org/news/closures-in-javascript/)
 
-<br/>
+**[⬆ Voltar para o topo](#javascript---advanced-concepts)**
+
 <br/>
 
 ---
@@ -500,7 +501,8 @@ const myOtherFunction = () => {};
 
 > [JavaScript Hoisting - Programiz](https://www.programiz.com/javascript/hoisting)
 
-<br/>
+**[⬆ Voltar para o topo](#javascript---advanced-concepts)**
+
 <br/>
 
 ---
@@ -703,6 +705,8 @@ console.log(concatArray); // => (5) [2, 4, 6, 8, 10]
 
 > [JavaScript's Memory Management Explained - felixgerschau.com](https://felixgerschau.com/javascript-memory-management/)
 
+**[⬆ Voltar para o topo](#javascript---advanced-concepts)**
+
 <br/>
 
 ---
@@ -811,6 +815,8 @@ petOwner('John', 'Cacau');
 
 > [JJavaScript Object Spread - javascripttutorial.net](https://www.javascripttutorial.net/es-next/javascript-object-spread/)
 
+**[⬆ Voltar para o topo](#javascript---advanced-concepts)**
+
 <br/>
 
 ---
@@ -859,7 +865,6 @@ console.log(age); // => 35
 console.log(developer); // => true
 ```
 
-<br>
 <br>
 
 ## 6.3. Exemplos
@@ -1193,7 +1198,8 @@ console.log(firstName); // => 'John'
 
 > [JavaScript · Destructuring Assignment with Default Values - dzaiste.net](https://zaiste.net/posts/javascript-destructuring-assignment-default-values/)
 
-<br/>
+**[⬆ Voltar para o topo](#javascript---advanced-concepts)**
+
 <br/>
 
 ---
