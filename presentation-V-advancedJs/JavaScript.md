@@ -1482,6 +1482,12 @@ sayCatchPhrase.apply(student, capNCook); // => Jesse Pinkman, AKA: Cap'n Cook, s
 
 ### 7.2.3.2. bind()
 
+Os métodos <code>bind()</code> e <code>call()</code> tem assinaturas semelhantes - ambos recebem como primeiro argumento o objeto referencia para <code>this</code> e os demais argumentos pertinentes a função são passados individualmente. A diferença é que <code>bind()</code> retorna uma nova função que será executada.
+
+```js
+//bind()
+```
+
 ### 7.2.4. Constructor Call Binding
 
 ## 7.3 this e eventos HTML
