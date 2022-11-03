@@ -1310,7 +1310,7 @@ function sayMyName() {
 sayMyName(); // => "You`re undefined"
 ```
 
-Caso o nosso código seja escrito em strict mode, o que é aconselhável sempre, com <code>'use strict'</code> no inicio do código ou dentro da função, <code>this</code> não é vinculado ao objeto global e o código lança uma exceção.
+Caso o nosso código seja escrito em strict mode, o que é aconselhável sempre, utilizando a diretriz <code>'use strict'</code> no inicio do código ou dentro da função, <code>this</code> não é vinculado ao objeto global e o código lança uma exceção.
 
 ```js
 // 'use strict'
@@ -1364,7 +1364,7 @@ function sayMyName() {
 walterWhite.partner.sayMyName(); // => "You`re Cap 'n Cook"
 ```
 
-No trecho de código acima <code>sayMyName</code> e executado a partir de <code>partner</code>, e <code>this</code> implicitamente vinculado a <code>partner</code> ao invés de <code>walterWhite</code>.
+No trecho de código acima o método <code>sayMyName</code> é executado a partir de <code>partner</code>, e <code>this</code> é implicitamente vinculado a <code>partner</code> ao invés de <code>walterWhite</code>.
 
 Uma maneira simples de descobrir a qual objeto <code>this</code> é vinculado, é analisar qual objeto está a esquerda da notação de ponto (<code>.</code>).
 
@@ -1486,9 +1486,56 @@ Os métodos <code>bind()</code> e <code>call()</code> tem assinaturas semelhante
 
 ```js
 //bind()
+var teacher = {
+  firstName: 'Walter',
+  lastName: 'White',
+};
+
+var student = {
+  firstName: 'Jesse',
+  lastName: 'Pinkman',
+};
+
+function sayCatchPhrase(aka, catchPhrase) {
+  console.log(
+    `${this.firstName} ${this.lastName}, AKA: ${aka}, says: ${catchPhrase}`
+  );
+}
+
+var walterWhiteCatchPhrase = sayCatchPhrase.bind(
+  teacher,
+  'Heisenberg',
+  'Say my name!'
+);
+
+var jessePinkmanCatchPhrase = sayCatchPhrase.bind(
+  student,
+  "Cap'n Cook",
+  'Yeah Science, Bitch!'
+);
+
+walterWhiteCatchPhrase(); // => Walter White, AKA: Heisenberg, says: Say my name!
+
+jessePinkmanCatchPhrase(); // => Jesse Pinkman, AKA: Cap'n Cook, says: Yeah Science, Bitch!
 ```
 
 ### 7.2.4. Constructor Call Binding
+
+Quando executamos uma função com a palavra chave <code>new</code>, também conhecida como <code>constructor function</code>, um novo objeto é criado; Este novo objeto é a referência para <code>this</code>
+
+```js
+function Character(firstName, lastName) {
+  (this.firstName = firstName), (this.lastName = lastName);
+}
+
+var walterWhite = new Character('Walter', 'White');
+
+var jessePinkman = new Character('Jesse', 'Pinkman');
+
+console.log(walterWhite); // => Character {firstName: 'Walter', lastName: 'White'}
+
+console.log(walterWhite); // => Character {firstName: 'Jesse', lastName: 'Pinkman'}
+```
 
 ## 7.3 this e eventos HTML
 
@@ -1504,7 +1551,7 @@ Resultado no console quando o botão é clicado:
 "<button onclick='console.log(this)'>Click Me!</button>"
 ```
 
-Podemos alterar a cor do botão, por exemplo:
+Podemos alterar alguma regra CSS do botão, por exemplo:
 
 ```html
 <button onclick="this.style.color='teal'">Click Me!</button>
@@ -1526,6 +1573,24 @@ function changeColor() {
 
 O código acima não terá o resultado esperado pois <code>this</code>, dentro da função <code>changeColor</code>, foi vinculado (binding) ao objeto global <code>window</code>, no modo <code>'non-strict'</code>, e não ao elemento do evento HTML.
 
+> [Binding in JS explained - Medium](https://medium.com/codex/binding-in-js-explained-4a2481a0b01a)
+
+> [The JavaScript `this` Keyword + 5 Key Binding Rules Explained for JS Beginners - freeCodeCamp](https://www.freecodecamp.org/news/javascript-this-keyword-binding-rules/)
+
+> [What Does 'this' Mean in JavaScript? The this Keyword Explained with Examples - freeCodeCamp](https://www.freecodecamp.org/news/what-is-this-in-javascript/)
+
+> [Demystifying the JavaScript this Keyword - javascripttutorial.net](https://www.javascripttutorial.net/javascript-this/)
+
+> [this in JavaScript - geeksforgeeks.org](https://www.geeksforgeeks.org/this-in-javascript/?id=discuss)
+
+> [“this” keyword in JavaScript - educba.com](https://www.educba.com/this-keyword-in-javascript/)
+
+> [JavaScript globalThis - javascripttutorial.net](https://www.javascripttutorial.net/es-next/javascript-globalthis/)
+
+> [call(), apply() and bind() in Javascript with examples - spycoding.com](https://spycoding.com/call-apply-and-bind-in-javascript-with-examples/)
+
+> [Understanding the "this" keyword, call, apply, and bind in JavaScript - ui.dev](https://ui.dev/this-keyword-call-apply-bind-javascript)
+
 **[⬆ Voltar para o topo](#javascript---advanced-concepts)**
 
 # Prototype
@@ -1543,3 +1608,7 @@ O código acima não terá o resultado esperado pois <code>this</code>, dentro d
 ```
 
 ```
+
+> [Learn JS](https://www.javascript.com/learn)
+
+> [JavaScripting](https://www.javascripting.com/)
