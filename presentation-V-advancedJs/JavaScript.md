@@ -1642,7 +1642,7 @@ Como podemos perceber na imagem acima, dentro de `[[Prototype]]` existe uma prop
 person.__proto__ === Object.prototype; // => true
 ```
 
-Neste caso, a asserção é valida e retorna `true` pois tanto `person.__proto__` quanto `Object.prototype` tem a mesma referência em memória.
+Neste caso, a asserção é valida e retorna `true` pois tanto `person.__proto__` quanto `Object.prototype` tem a referência do mesmo objeto em memória.
 
 ## 8.2. .prototype
 
@@ -1692,7 +1692,7 @@ john.__proto__ === Person.prototype; // => true
 
   <img height='200px'  src='assets/img/john.proto-Person.prototype.png'/>
 
-Aqui podemos observar que o objeto `john` tem como `__proto__` - a propriedade que expõe `[[Prototype]]` - um objeto que contém a função construtora `Person` como valor da propriedade `constructor`; `Person` por sua vez recebe a propriedade `.prototype` por ser uma `Constructor Function`.
+Aqui podemos observar que o objeto `john` tem como `__proto__` - a propriedade que expõe `[[Prototype]]` - um objeto que contém a função construtora `Person` como valor da propriedade `constructor`; `Person`, por sua vez, recebe a propriedade `.prototype` por ser uma `Constructor Function`.
 
 Por convenção, as `Constructor Functions` são declaradas em `PascalCase`, com a primeira letra em maiúsculo.
 
