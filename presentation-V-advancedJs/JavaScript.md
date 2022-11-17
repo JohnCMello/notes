@@ -35,9 +35,11 @@
     - [7.2.3.2. bind()](#7232-bind)
     - [7.2.4. Constructor Call Binding](#724-constructor-call-binding)
   - [7.3 this e eventos HTML](#73-this-e-eventos-html)
-- [Prototype](#prototype)
-- [Currying](#currying)
+- [8. Prototype](#8-prototype)
+  - [8.1. [[Prototype]] X \_\_proto\_\_](#81-prototype-x-__proto__)
+  - [8.2. .prototype](#82-prototype)
 - [async](#async)
+- [Currying](#currying)
 
 <br/>
 
@@ -113,7 +115,7 @@ function sayMyName() {
 
 Variáveis declaradas fora de uma função são declaradas no escopo global.
 
-Seja ela declarada com <code>var</code> | <code>let</code> | <code>const</code>.
+Seja ela declarada com `var` | `let` | `const`.
 
 ```js
 // myName, herName, myDogsName são acessíveis no escopo global.
@@ -159,7 +161,7 @@ function sayMyName() {
 
 Variáveis definidas dentro da função não são acessíveis, "visíveis", de fora dela.
 
-Seja ela declarada com <code>var</code> | <code>let</code> | <code>const</code>.
+Seja ela declarada com `var` | `let` | `const`.
 
 ```js
 // myName, herName, myDogsName não são acessíveis no escopo global.
@@ -192,7 +194,7 @@ Anteriormente ao ES6 (2015), existiam somente o escopo Global e o Escopo Local |
 
 Com a introdução de let e const, foi definido mais um tipo de escopo, o escopo de bloco
 
-Um bloco de código em Js é definido por código escrito dentro de <code>{ }</code>
+Um bloco de código em Js é definido por código escrito dentro de `{ }`
 
 ```js
 // inicio de bloco
@@ -209,7 +211,7 @@ console.log(message); // => ReferenceError: message is not defined
 console.log(otherMessage); // => ReferenceError: otherMessage is not defined
 ```
 
-Variáveis declaradas com <code>var</code> não possuem escopo de bloco, e podem ser acessadas de fora do bloco de código.
+Variáveis declaradas com `var` não possuem escopo de bloco, e podem ser acessadas de fora do bloco de código.
 
 ```js
 {
@@ -221,9 +223,9 @@ Variáveis declaradas com <code>var</code> não possuem escopo de bloco, e podem
 console.log(message); // => 'from inside a block of code'
 ```
 
-<code>const</code> e <code>let</code> resolvem o problema de vazamento de variáveis declaradas com var em escopo de bloco.
+`const` e `let` resolvem o problema de vazamento de variáveis declaradas com var em escopo de bloco.
 
-Outro exemplo desse vazamento é a declaração da variável de inicialização do <code>for</code> loop
+Outro exemplo desse vazamento é a declaração da variável de inicialização do `for` loop
 
 ```js
 for(var i = 0, i < 10, i++){}
@@ -272,11 +274,11 @@ function greetings() {
 greetings(); // => 'Hi John'
 ```
 
-Mesmo sendo declarada fora do escopo de greetings, no escopo global neste caso, a função tem acesso a variável <code>name</code> declarada no escopo mais externo.
+Mesmo sendo declarada fora do escopo de greetings, no escopo global neste caso, a função tem acesso a variável `name` declarada no escopo mais externo.
 
-Isso traz um problema, qualquer código na página tem acesso a <code>name</code> e pode alterar o seu valor sem a necessidade de executar <code>greetings</code>.
+Isso traz um problema, qualquer código na página tem acesso a `name` e pode alterar o seu valor sem a necessidade de executar `greetings`.
 
-A variável <code>message</code> é local e só pode ser acessada dentro de <code>greetings</code>. Se tentarmos acessa-la de fora, obteremos um erro.
+A variável `message` é local e só pode ser acessada dentro de `greetings`. Se tentarmos acessa-la de fora, obteremos um erro.
 
 ```js
 function birthday(years) {
@@ -293,13 +295,13 @@ birthday(35); // => Hoje é meu aniversário de 35 anos.
 birthday(27); // => Hoje é meu aniversário de 27 anos.
 ```
 
-Neste trecho de código, a função <code>birthday</code> cria uma variável local, <code>age</code>, e também a função <code>celebrate</code>, que por sua vez cria uma variável local, <code>birthdayMessage</code>.
+Neste trecho de código, a função `birthday` cria uma variável local, `age`, e também a função `celebrate`, que por sua vez cria uma variável local, `birthdayMessage`.
 
-<code>celebrate</code> é a função mais interna e só está disponível no escopo da função <code>birthday</code>.
+`celebrate` é a função mais interna e só está disponível no escopo da função `birthday`.
 
-A função <code>celebrate</code> tem acesso a variável <code>age</code>, definida em <code>birthday</code>, mas <code>birthday</code> não tem acesso a <code>birthdayMessage</code>.
+A função `celebrate` tem acesso a variável `age`, definida em `birthday`, mas `birthday` não tem acesso a `birthdayMessage`.
 
-Vamos modificar a função <code>birthday</code>.
+Vamos modificar a função `birthday`.
 
 ```js
 function birthday(name, years) {
@@ -330,17 +332,17 @@ johnsBday(); // => 'Meu nome é John e hoje é meu aniversário de 36 anos'
 juliasBday(); // => 'Meu nome é Julia e hoje é meu aniversário de 28 anos'
 ```
 
-Agora, em vez de executarmos a função <code>celebrate</code> dentro de <code>birthday</code>, <code>birthday</code> retorna o objeto de função <code>celebrate</code>.
+Agora, em vez de executarmos a função `celebrate` dentro de `birthday`, `birthday` retorna o objeto de função `celebrate`.
 
 Como em JS as funções são First-Class Citizens, podemos retornar uma função a partir de outra função.
 
-Fora da função <code>birthday</code>, nós atribuímos à <code>johnsBday</code> e <code>juliasBday</code> o retorno de <code>birthday</code> com os seus respectivos argumentos.
+Fora da função `birthday`, nós atribuímos à `johnsBday` e `juliasBday` o retorno de `birthday` com os seus respectivos argumentos.
 
-Depois executamos as funções <code>johnsBday</code> e <code>juliasBday</code>.
+Depois executamos as funções `johnsBday` e `juliasBday`.
 
-Como já sabemos, em JS, uma variável local só existe durante o tempo de execução da função, isto é, ao fim da execução de birthday, as variáveis <code>person</code> e <code>age</code> não existem mais.
+Como já sabemos, em JS, uma variável local só existe durante o tempo de execução da função, isto é, ao fim da execução de birthday, as variáveis `person` e `age` não existem mais.
 
-Neste caso, nós executamos <code>johnsBday</code> | <code>juliasBday</code> que faz referência ao retorno de <code>birthday</code>, que é a função <code>celebrate</code>, e as variáveis ainda persistem.
+Neste caso, nós executamos `johnsBday` | `juliasBday` que faz referência ao retorno de `birthday`, que é a função `celebrate`, e as variáveis ainda persistem.
 
 Uma Closure é uma função que preserva o escopo externo a ela dentro do seu escopo.
 
@@ -397,7 +399,7 @@ myName = `John`;
 console.log(myName); // => 'John'
 ```
 
-A referência para a variável <code>myName</code> é criada em memória, o escopo é definido, e seu valor é inicializado como <code>undefined</code>.
+A referência para a variável `myName` é criada em memória, o escopo é definido, e seu valor é inicializado como `undefined`.
 
 Caso tentemos acessar uma variável inicializada que não foi declarada antes, obtemos um erro de referência.
 
@@ -439,9 +441,9 @@ console.log(sayMyName(`John`));
 
 <br>
 
-Variáveis declaradas com <code>let</code> | <code>const</code> também são içadas, mas não são inicializadas com o valor padrão de <code>undefined</code>.
+Variáveis declaradas com `let` | `const` também são içadas, mas não são inicializadas com o valor padrão de `undefined`.
 
-A leitura de variáveis declaradas com <code>let</code> e <code>const</code> antes da sua inicialização lança uma exceção.
+A leitura de variáveis declaradas com `let` e `const` antes da sua inicialização lança uma exceção.
 
 ```js
 console.log(myName); // => ReferenceError
@@ -562,9 +564,9 @@ Valores primitivos são armazenados na Stack.
 
 ![](assets/img/values-in-memory.png)
 
-Apesar de atribuirmos as variáveis <code>leftHandFingers</code> à <code>rightHandFingers</code> e <code>developer</code> à <code>frontEndDev</code>, o que é atribuído é o valor da variável, neste caso 5 e true, respectivamente.
+Apesar de atribuirmos as variáveis `leftHandFingers` à `rightHandFingers` e `developer` à `frontEndDev`, o que é atribuído é o valor da variável, neste caso 5 e true, respectivamente.
 
-Vamos imaginar que algo acontece com <code>rightHandFingers</code>. (bata na madeira)
+Vamos imaginar que algo acontece com `rightHandFingers`. (bata na madeira)
 
 ```js
 rightHandFingers--;
@@ -589,9 +591,9 @@ const features = {
 
 ![](assets/img/values-in-memory-2.png)
 
-Objetos em JS são armazenados em uma segunda área de alocação de memória, <code>Heap</code>.
+Objetos em JS são armazenados em uma segunda área de alocação de memória, `Heap`.
 
-As variáveis que recebem um objeto, na verdade recebem uma referência para um endereço dentro da <code>Heap</code>.
+As variáveis que recebem um objeto, na verdade recebem uma referência para um endereço dentro da `Heap`.
 
 ```js
 const likes = skills;
@@ -602,7 +604,7 @@ console.log(skills); // => ['cooking', 'dancing']
 
 ![](assets/img/values-in-memory-3.png)
 
-Caso uma variável, que tem como valor um objeto, seja atribuída a outra variável, o valor passado é a referência do endereço na <code>Heap</code>.
+Caso uma variável, que tem como valor um objeto, seja atribuída a outra variável, o valor passado é a referência do endereço na `Heap`.
 
 ```js
 likes.push('music');
@@ -613,7 +615,7 @@ console.log(skills); // => ['cooking', 'dancing', 'music']
 
 ![](assets/img/values-in-memory-4.png)
 
-Como as duas variáveis apontam para o mesmo endereço no <code>Heap</code>, se fizermos uma alteração em likes, skills também é alterada.
+Como as duas variáveis apontam para o mesmo endereço no `Heap`, se fizermos uma alteração em likes, skills também é alterada.
 
 ```js
 const skills = ['cooking', 'dancing', 'music'];
@@ -624,7 +626,7 @@ console.log(skills === likes); // => false
 
 ![](assets/img/values-in-memory-5.png)
 
-Embora o "mesmo" array seja atribuído, uma referência é independente da outra. As variáveis apontam para endereços diferente na <code>Heap</code>.
+Embora o "mesmo" array seja atribuído, uma referência é independente da outra. As variáveis apontam para endereços diferente na `Heap`.
 
 ## 4.3. Copiando Objetos
 
@@ -725,7 +727,7 @@ console.log(concatArray); // => (5) [2, 4, 6, 8, 10]
 
 # 5. Spread Operator | Rest Parameters
 
-Os operadores <code>Spread</code> e <code>Rest</code> tem sintaxe idêntica,<code>...</code>, mas eles diferem em funcionalidade.
+Os operadores `Spread` e `Rest` tem sintaxe idêntica,`...`, mas eles diferem em funcionalidade.
 
 A principal diferença entre eles é que o Rest Parameters é utilizado para armazenar o resto de uma lista de valores ou argumentos de uma função em um Array e o Spread Operator é utilizado para expandir iteráveis em valores individuais.
 
@@ -881,7 +883,7 @@ console.log(developer); // => true
 
 ## 6.3. Exemplos
 
-Se tentarmos atribuir um valor inexistente a uma variável, ela recebe o valor de <code>undefined</code>.
+Se tentarmos atribuir um valor inexistente a uma variável, ela recebe o valor de `undefined`.
 
 - Arrays
 
@@ -948,7 +950,7 @@ Alguns valores podem ser ignorados.
 
 - Arrays
 
-Com o uso do operador <code>,</code> (vírgula | comma) .
+Com o uso do operador `,` (vírgula | comma) .
 
 ```js
 const technologies = ['JavaScript', 'HTML', 'CSS', 'React', 'Angular', 'Vue'];
@@ -960,7 +962,7 @@ console.log(css); // => 'CSS'
 console.log(react); // => 'React'
 ```
 
-Neste trecho de código os indices <code>[1]</code>, <code>[4]</code> e <code>[5]</code> não foram atribuídos a variáveis.
+Neste trecho de código os indices `[1]`, `[4]` e `[5]` não foram atribuídos a variáveis.
 
 - Objetos
 
@@ -1082,8 +1084,8 @@ console.log(developer); // => true
 console.log(dogsName); // => 'Cacau'
 ```
 
-Valores padrão só podem ser atribuídos caso a variável não exista ou o seu valor seja <code>undefined</code>.
-Quaisquer outros valores incluindo <code>null</code>, <code>false</code> ou <code>0</code> são ignorados pelo Default assignment.
+Valores padrão só podem ser atribuídos caso a variável não exista ou o seu valor seja `undefined`.
+Quaisquer outros valores incluindo `null`, `false` ou `0` são ignorados pelo Default assignment.
 
 - Arrays
 
@@ -1118,7 +1120,7 @@ console.log(name); // => 'John'
 
 <br>
 
-Se as funções <code>webDevTechStack</code> e <code>webDev</code> retornassem outro valor que não um array ou um objeto, neste cenário onde array & objeto são esperados, uma exceção seria lançada.
+Se as funções `webDevTechStack` e `webDev` retornassem outro valor que não um array ou um objeto, neste cenário onde array & objeto são esperados, uma exceção seria lançada.
 
 ```js
 function webDevTechStack() {
@@ -1174,7 +1176,7 @@ console.log(age); // => 'Mello'
 console.log(workInfo); // => {developer: true, frontEndDev: true, company: 'Valtech'}
 ```
 
-A sintaxe de Object Destructuring ainda nos permite definir aliases para os valores obtidos a partir do objeto original com o uso do operador <code>:</code> (dois pontos | colon).
+A sintaxe de Object Destructuring ainda nos permite definir aliases para os valores obtidos a partir do objeto original com o uso do operador `:` (dois pontos | colon).
 
 ```js
 function webDev() {
@@ -1219,13 +1221,13 @@ console.log(firstName); // => 'John'
 
 # 7. this
 
-A palavra chave <code>this</code> não é pertinente somente ao JavaScript. Outras linguagens de programação como Java, C#, e PHP utilizam deste artifício com o intuito de representar a instância atual da classe. Entretanto em JavaScript ela se comporta de maneira diferente.
+A palavra chave `this` não é pertinente somente ao JavaScript. Outras linguagens de programação como Java, C#, e PHP utilizam deste artifício com o intuito de representar a instância atual da classe. Entretanto em JavaScript ela se comporta de maneira diferente.
 
-Como <code>this</code> é determinado em Runtime, quando uma função é executada, a sua referência pode variar dependendo do que acontece no código.
+Como `this` é determinado em Runtime, quando uma função é executada, a sua referência pode variar dependendo do que acontece no código.
 
-Em geral, <code>this</code> referencia o objeto do qual a função é uma propriedade, o objeto que executa a função naquele determinado momento, e não necessariamente o objeto onde a função foi definida.
+Em geral, `this` referencia o objeto do qual a função é uma propriedade, o objeto que executa a função naquele determinado momento, e não necessariamente o objeto onde a função foi definida.
 
-<code>this</code> sempre faz referência a um objeto e não a uma função. Embora ele seja definido no momento da execução da função, a sua referência é do objeto.
+`this` sempre faz referência a um objeto e não a uma função. Embora ele seja definido no momento da execução da função, a sua referência é do objeto.
 
 ```js
 const webDev = {
@@ -1240,13 +1242,13 @@ const webDev = {
 webDev.birthday(); // => 36
 ```
 
-Dentro da função <code>birthday</code>, <code>this</code> faz referência a propriedade <code>age</code> do objeto <code>webDev</code>.
+Dentro da função `birthday`, `this` faz referência a propriedade `age` do objeto `webDev`.
 
 <br>
 
 ## 7.1. this no contexto Global
 
-No contexto Global <code>this</code> faz referência a <code>window</code> nos browsers, ou a <code>global</code> no Node.js
+No contexto Global `this` faz referência a `window` nos browsers, ou a `global` no Node.js
 
 ```js
 console.log(this === window); // => true
@@ -1254,7 +1256,7 @@ console.log(this === window); // => true
 console.log(this); // => Window {window: Window, self: Window, document: document, name: '', location: Location, …}
 ```
 
-Caso uma propriedade seja atribuída a <code>this</code> em contexto Global, ela será atribuída ao objeto global.
+Caso uma propriedade seja atribuída a `this` em contexto Global, ela será atribuída ao objeto global.
 
 ```js
 this.globalString = 'Global string';
@@ -1266,7 +1268,7 @@ console.log(window.globalString); // => Global string
 
 ## 7.2. this no contexto Funcional
 
-Em Js podemos executar uma função de quatro maneiras, ou seja, quatro modos de vincularmos, "binding", <code>this</code>
+Em Js podemos executar uma função de quatro maneiras, ou seja, quatro modos de vincularmos, "binding", `this`
 
 - Function invocation | Execução de função (Default binding)
 - Method invocation | Execução de método (Implicit binding)
@@ -1275,7 +1277,7 @@ Em Js podemos executar uma função de quatro maneiras, ou seja, quatro modos de
 
 ### 7.2.1. Default Binding
 
-Caso um função que foi definida no escopo global contenha uma referência a <code>this</code> dentro do seu escopo, no momento da sua execução, <code>this</code> é vinculado ao objeto global.
+Caso um função que foi definida no escopo global contenha uma referência a `this` dentro do seu escopo, no momento da sua execução, `this` é vinculado ao objeto global.
 
 ```js
 var walterWhite = 'Heisenberg';
@@ -1287,9 +1289,9 @@ function sayMyName() {
 sayMyName(); // => "You`re Heisenberg"
 ```
 
-<code>sayMyName</code> é uma função simples definida e no escopo global, isso faz com que <code>this</code>, neste contexto, referencie o objeto global.
+`sayMyName` é uma função simples definida e no escopo global, isso faz com que `this`, neste contexto, referencie o objeto global.
 
-Lembrando que variáveis definidas com a palavra chave <code>var</code> são atribuídas ao objeto global.
+Lembrando que variáveis definidas com a palavra chave `var` são atribuídas ao objeto global.
 
 ```js
 console.log(this.walterWhite); // => "Heisenberg"
@@ -1297,7 +1299,7 @@ console.log(this.walterWhite); // => "Heisenberg"
 console.log(window.walterWhite); // => "Heisenberg"
 ```
 
-Variáveis definidas com <code>let</code> ou <code>const</code> não são atribuídas ao objeto global.
+Variáveis definidas com `let` ou `const` não são atribuídas ao objeto global.
 
 ```js
 let walterWhite = 'Heisenberg';
@@ -1310,7 +1312,7 @@ function sayMyName() {
 sayMyName(); // => "You`re undefined"
 ```
 
-Caso o nosso código seja escrito em strict mode, o que é aconselhável sempre, utilizando a diretriz <code>'use strict'</code> no inicio do código ou dentro da função, <code>this</code> não é vinculado ao objeto global e o código lança uma exceção.
+Caso o nosso código seja escrito em strict mode, o que é aconselhável sempre, utilizando a diretriz `'use strict'` no inicio do código ou dentro da função, `this` não é vinculado ao objeto global e o código lança uma exceção.
 
 ```js
 // 'use strict'
@@ -1327,7 +1329,7 @@ sayMyName(); // => Uncaught TypeError: this is undefined
 
 ### 7.2.2. Implicit Binding
 
-Quando invocamos um método de um objeto utilizando a notação de ponto (<code>.</code>), <code>this</code> é vinculado ao objeto que invoca o método no momento da execução.
+Quando invocamos um método de um objeto utilizando a notação de ponto (`.`), `this` é vinculado ao objeto que invoca o método no momento da execução.
 
 ```js
 var walterWhite = {
@@ -1343,7 +1345,7 @@ function sayMyName() {
 walterWhite.sayMyName(); // => "You`re Heisenberg"
 ```
 
-Neste trecho de código, quando executamos <code>walterWhite.sayMyName()</code>, <code>this</code> é vinculado ao objeto <code>walterWhite</code> e <code>sayMyName()</code> é capaz de resolver a propriedade <code>alias</code>.
+Neste trecho de código, quando executamos `walterWhite.sayMyName()`, `this` é vinculado ao objeto `walterWhite` e `sayMyName()` é capaz de resolver a propriedade `alias`.
 
 ```js
 var walterWhite = {
@@ -1364,9 +1366,9 @@ function sayMyName() {
 walterWhite.partner.sayMyName(); // => "You`re Cap 'n Cook"
 ```
 
-No trecho de código acima o método <code>sayMyName</code> é executado a partir de <code>partner</code>, e <code>this</code> é implicitamente vinculado a <code>partner</code> ao invés de <code>walterWhite</code>.
+No trecho de código acima o método `sayMyName` é executado a partir de `partner`, e `this` é implicitamente vinculado a `partner` ao invés de `walterWhite`.
 
-Uma maneira simples de descobrir a qual objeto <code>this</code> é vinculado, é analisar qual objeto está a esquerda da notação de ponto (<code>.</code>).
+Uma maneira simples de descobrir a qual objeto `this` é vinculado, é analisar qual objeto está a esquerda da notação de ponto (`.`).
 
 ```js
 var walterWhite = {
@@ -1412,15 +1414,15 @@ function sayMyName() {
 }
 ```
 
-Criamos dois objetos independentes <code>walterWhite</code> e <code>jessePinkman</code>, isolamos a função <code>sayMyName</code> e adicionamos uma verificação.
+Criamos dois objetos independentes `walterWhite` e `jessePinkman`, isolamos a função `sayMyName` e adicionamos uma verificação.
 
-Agora, se executarmos a função <code>sayMyName</code>, <code>this</code> está vinculado ao objeto global.
+Agora, se executarmos a função `sayMyName`, `this` está vinculado ao objeto global.
 
-Para vincularmos <code>this</code> explicitamente, podemos utilizar os métodos <code>call()</code>, <code>apply()</code> e <code>bind()</code> existentes no <code>Function prototype</code>
+Para vincularmos `this` explicitamente, podemos utilizar os métodos `call()`, `apply()` e `bind()` existentes no `Function prototype`
 
 ### 7.2.3.1. call() e apply()
 
-Os métodos <code>call()</code> e <code>apply()</code> tem basicamente a mesma implementação, a diferença são as suas assinaturas.
+Os métodos `call()` e `apply()` tem basicamente a mesma implementação, a diferença são as suas assinaturas.
 
 ```js
 Function.prototype.call(thisReference, arg1, ..., argN)
@@ -1428,7 +1430,7 @@ Function.prototype.call(thisReference, arg1, ..., argN)
 Function.prototype.apply(thisReference, [...args])
 ```
 
-Tanto <code>call()</code> quanto <code>apply()</code> recebem como primeiro argumento o objeto que será a referência para <code>this</code>, mas <code>call()</code> necessita que os demais argumentos da função sejam passados individualmente, e <code>apply()</code> recebe um array de argumentos.
+Tanto `call()` quanto `apply()` recebem como primeiro argumento o objeto que será a referência para `this`, mas `call()` necessita que os demais argumentos da função sejam passados individualmente, e `apply()` recebe um array de argumentos.
 
 ```js
 // call()
@@ -1482,7 +1484,7 @@ sayCatchPhrase.apply(student, capNCook); // => Jesse Pinkman, AKA: Cap'n Cook, s
 
 ### 7.2.3.2. bind()
 
-Os métodos <code>bind()</code> e <code>call()</code> tem assinaturas semelhantes - ambos recebem como primeiro argumento o objeto referencia para <code>this</code> e os demais argumentos pertinentes a função são passados individualmente. A diferença é que <code>bind()</code> retorna uma nova função que será executada.
+Os métodos `bind()` e `call()` tem assinaturas semelhantes - ambos recebem como primeiro argumento o objeto referencia para `this` e os demais argumentos pertinentes a função são passados individualmente. A diferença é que `bind()` retorna uma nova função que será executada.
 
 ```js
 //bind()
@@ -1521,7 +1523,7 @@ jessePinkmanCatchPhrase(); // => Jesse Pinkman, AKA: Cap'n Cook, says: Yeah Scie
 
 ### 7.2.4. Constructor Call Binding
 
-Quando executamos uma função com a palavra chave <code>new</code>, também conhecida como <code>constructor function</code>, um novo objeto é criado; Este novo objeto é a referência para <code>this</code>
+Quando executamos uma função com a palavra chave `new`, também conhecida como `constructor function`, um novo objeto é criado; Este novo objeto é a referência para `this`
 
 ```js
 function Character(firstName, lastName) {
@@ -1539,7 +1541,7 @@ console.log(walterWhite); // => Character {firstName: 'Jesse', lastName: 'Pinkm
 
 ## 7.3 this e eventos HTML
 
-Em <code>handlers</code> de eventos HTML, <code>this</code> é vinculado ao elemento que recebe o evento.
+Em `handlers` de eventos HTML, `this` é vinculado ao elemento que recebe o evento.
 
 ```html
 <button onclick="console.log(this)">Click Me!</button>
@@ -1557,7 +1559,7 @@ Podemos alterar alguma regra CSS do botão, por exemplo:
 <button onclick="this.style.color='teal'">Click Me!</button>
 ```
 
-Cuidado ao atribuir uma função ao evento que contenha <code>this</code> dentro da função:
+Cuidado ao atribuir uma função ao evento que contenha `this` dentro da função:
 
 ```html
 <!-- index.html -->
@@ -1571,11 +1573,11 @@ function changeColor() {
 }
 ```
 
-O código acima não terá o resultado esperado pois <code>this</code>, dentro da função <code>changeColor</code>, foi vinculado (binding) ao objeto global <code>window</code>, no modo <code>'non-strict'</code>, e não ao elemento do evento HTML.
+O código acima não terá o resultado esperado pois `this`, dentro da função `changeColor`, foi vinculado (binding) ao objeto global `window`, no modo `'non-strict'`, e não ao elemento do evento HTML.
 
 > [Binding in JS explained - Medium](https://medium.com/codex/binding-in-js-explained-4a2481a0b01a)
 
-> [The JavaScript `this` Keyword + 5 Key Binding Rules Explained for JS Beginners - freeCodeCamp](https://www.freecodecamp.org/news/javascript-this-keyword-binding-rules/)
+> [The JavaScript this Keyword + 5 Key Binding Rules Explained for JS Beginners - freeCodeCamp](https://www.freecodecamp.org/news/javascript-this-keyword-binding-rules/)
 
 > [What Does 'this' Mean in JavaScript? The this Keyword Explained with Examples - freeCodeCamp](https://www.freecodecamp.org/news/what-is-this-in-javascript/)
 
@@ -1593,11 +1595,106 @@ O código acima não terá o resultado esperado pois <code>this</code>, dentro d
 
 **[⬆ Voltar para o topo](#javascript---advanced-concepts)**
 
-# Prototype
+# 8. Prototype
 
-**[⬆ Voltar para o topo](#javascript---advanced-concepts)**
+JS é uma linguagem de programação `prototype-based`, da qual é possível reutilizar objetos já existentes que servem de protótipos.
 
-# Currying
+Objetos podem herdar propriedades e métodos de outros objetos por meio do `[[Prototype]]`
+
+O `[[Prototype]]` é um objeto, ou seja, ele tem o seu próprio `[[Prototype]]`. Isso faz com que uma cadeia de protótipos seja criada, a `prototype chain`, sendo eventualmente concluída quando um `[[Prototype]]` tem o valor de `null`
+
+```js
+const person = {};
+
+person;
+```
+
+<img height='50px' src='assets/img/obj-prototype.png'/>
+
+Criamos `person`, um objeto vazio mas que contém a propriedade `[[Prototype]]` como valor de `Object` .
+
+Vamos adicionar algumas propriedades a este objeto
+
+```js
+person.name = 'John';
+person.age = 35;
+```
+
+Agora, além de `[[Prototype]]`, temos as propriedades `name` e `age` em `person`.
+
+<img height='80px' src='assets/img/obj-prototype-properties.png'>
+
+Mas afinal, o que é o `[[Prototype]]`?
+
+`[[Prototype]]` é uma propriedade privada presente em todos os objetos JS, essa propriedade tem a referência do `prototype` do objeto atual.
+
+<img height='350px' src= 'assets/img/obj-prototype-expanded.png'/>
+
+Apesar de ser uma propriedade privada de `person`, pelo browser é possível visualizar os métodos do objeto `[[Prototype]]`.
+
+## 8.1. [[Prototype]] X \_\_proto\_\_
+
+Como podemos perceber na imagem acima, dentro de `[[Prototype]]` existe uma propriedade `__proto__`, que é uma propriedade de `Object.prototype`. A Propriedade `__proto__` expõe `[[Prototype]]` e nos permite acessar ou modificar suas propriedades.
+
+<img height='330px' width='750px' src='assets/img/Object.prototype.png'/>
+
+```js
+person.__proto__ === Object.prototype; // => true
+```
+
+Neste caso, a asserção é valida e retorna `true` pois tanto `person.__proto__` quanto `Object.prototype` tem a mesma referência em memória.
+
+## 8.2. .prototype
+
+`.prototype` é uma propriedade presente qualquer `Function Expression`.
+
+Métodos e funções declaradas com a sintaxe de `arrow function` não recebem `.prototype`
+
+```js
+function functionExpression() {}
+const arrowFunction = () => {};
+
+functionExpression.prototype; // => {constructor: ƒ}
+arrowFunction.prototype; // => undefined
+
+const obj = {
+  functionExpression: function () {},
+  arrowFunction: () => {},
+};
+
+obj.functionExpression.prototype; // => {constructor: ƒ}
+obj.arrowFunction.prototype; // => undefined
+```
+
+`.prototype` contêm uma referência para um objeto que será o `[[Prototype]]` do novo objeto criado quando uma função construtora for executada.
+
+```js
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype; // => {constructor: ƒ}
+```
+
+  <img height='100px'  src='assets/img/Person.prototype.png'/>
+
+```js
+const john = new Person('John');
+
+john;
+```
+
+  <img height='140px'  src='assets/img/john.Obj.png'/>
+
+```js
+john.__proto__ === Person.prototype; // => true
+```
+
+  <img height='200px'  src='assets/img/john.proto-Person.prototype.png'/>
+
+Aqui podemos observar que o objeto `john` tem como `__proto__` - a propriedade que expõe `[[Prototype]]` - um objeto que contém a função construtora `Person` como valor da propriedade `constructor`; `Person` por sua vez recebe a propriedade `.prototype` por ser uma `Constructor Function`.
+
+Por convenção, as `Constructor Functions` são declaradas em `PascalCase`, com a primeira letra em maiúsculo.
 
 **[⬆ Voltar para o topo](#javascript---advanced-concepts)**
 
@@ -1605,9 +1702,9 @@ O código acima não terá o resultado esperado pois <code>this</code>, dentro d
 
 **[⬆ Voltar para o topo](#javascript---advanced-concepts)**
 
-```
+# Currying
 
-```
+**[⬆ Voltar para o topo](#javascript---advanced-concepts)**
 
 > [Learn JS](https://www.javascript.com/learn)
 

@@ -6,3 +6,9 @@ function sayMyName() {
 }
 
 sayMyName();
+
+//this
+//escopo
+//hoisting
+//prototype
+//async
