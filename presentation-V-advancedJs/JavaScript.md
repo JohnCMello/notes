@@ -51,7 +51,7 @@
 
 A região dentro de um programa do qual a variável pode ser referenciada através de seu nome.
 
-O Escopo determina a acessibilidade, **_visibilidade_** , das variáveis.
+O Escopo determina a acessibilidade, **visibilidade** , das variáveis.
 
 Ele é o contexto atual de execução onde valores e expressões estão visíveis ou podem ser executadas. Se a variável ou a expressão não faz parte do escopo atual, ela não estará disponível para uso.
 
@@ -147,6 +147,8 @@ function sayMyName() {
   sayMyAge();
 }
 ```
+
+Não é um boa prática atribuir um valor a uma variável sem declara-la antes.
 
 ### 1.3.2. Function | Local Scope
 
@@ -611,6 +613,8 @@ likes.push('music');
 
 console.log(likes); // => ['cooking', 'dancing', 'music']
 console.log(skills); // => ['cooking', 'dancing', 'music']
+
+console.log(likes === skills); // => true
 ```
 
 ![](assets/img/values-in-memory-4.png)
@@ -1120,7 +1124,7 @@ console.log(name); // => 'John'
 
 <br>
 
-Se as funções `webDevTechStack` e `webDev` retornassem outro valor que não um array ou um objeto, neste cenário onde array & objeto são esperados, uma exceção seria lançada.
+Se as funções `webDevTechStack` e `webDev` retornassem outro valor que não um array ou um objeto, neste cenário onde `array` & `objeto` são esperados, uma exceção seria lançada.
 
 ```js
 function webDevTechStack() {
@@ -1575,6 +1579,10 @@ function changeColor() {
 
 O código acima não terá o resultado esperado pois `this`, dentro da função `changeColor`, foi vinculado (binding) ao objeto global `window`, no modo `'non-strict'`, e não ao elemento do evento HTML.
 
+> ## Sugestão de leitura
+
+<br/>
+
 > [Binding in JS explained - Medium](https://medium.com/codex/binding-in-js-explained-4a2481a0b01a)
 
 > [The JavaScript this Keyword + 5 Key Binding Rules Explained for JS Beginners - freeCodeCamp](https://www.freecodecamp.org/news/javascript-this-keyword-binding-rules/)
@@ -1696,7 +1704,43 @@ Aqui podemos observar que o objeto `john` tem como `__proto__` - a propriedade q
 
 Por convenção, as `Constructor Functions` são declaradas em `PascalCase`, com a primeira letra em maiúsculo.
 
-**[⬆ Voltar para o topo](#javascript---advanced-concepts)**
+> ## Sugestão de leitura
+
+<br/>
+
+> [JavaScript Prototype - www.javascripttutorial.net](https://www.javascripttutorial.net/javascript-prototype/)
+
+> [JavaScript Constructor Function - www.javascripttutorial.net](https://www.javascripttutorial.net/javascript-constructor-function/)
+
+> [Prototype in JavaScript - www.geeksforgeeks.org](https://www.geeksforgeeks.org/prototype-in-javascript/)
+
+> [Object prototypes - MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+
+> [Function.prototype.prototype - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)
+
+> [Prototype in JavaScript - www.tutorialsteacher.com](https://www.tutorialsteacher.com/javascript/prototype-in-javascript)
+
+> [JavaScript Prototype Explained with Examples - www.javascripttutorial.net](https://www.freecodecamp.org/news/javascript-prototype-explained-with-examples/)
+
+> [F.prototype - javascript.info](https://javascript.info/function-prototype)
+
+> [[[Prototype]] vs \_\_proto\_\_ vs .prototype in Javascript - medium.com](https://medium.com/@eamonocallaghan/prototype-vs-proto-vs-prototype-in-javascript-6758cadcbae8)
+
+> [A Beginner’s Guide to JavaScript’s Prototype - www.freecodecamp.org](https://www.freecodecamp.org/news/a-beginners-guide-to-javascripts-prototype/)
+
+> [Inheritance and the prototype chain - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#constructors)
+
+> [Understanding the JavaScript Prototype Chain & Inheritance - blog.risingstack.com](https://blog.risingstack.com/javascript-prototype-chain-inheritance/)
+
+> [Understanding Prototype Chain And Inheritance in JavaScript - hackernoon.com](https://hackernoon.com/understanding-prototype-chain-and-inheritance-in-javascript-5c2w31oa)
+
+> [Prototypal inheritance - javascript.info](https://javascript.info/prototype-inheritance)
+
+> [JavaScript Prototypes and Inheritance – and Why They Say Everything in JS is an Object - www.freecodecamp.org](https://www.freecodecamp.org/news/prototypes-and-inheritance-in-javascript/)
+
+> [JavaScript Prototypal Inheritance - www.javascripttutorial.net](https://www.javascripttutorial.net/javascript-prototypal-inheritance/)
+
+> **[⬆ Voltar para o topo](#javascript---advanced-concepts)**
 
 # async
 
