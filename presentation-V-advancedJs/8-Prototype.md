@@ -107,8 +107,6 @@ Por convenção, as `Constructor Functions` são declaradas em `PascalCase`, com
 
 > [JavaScript Constructor Function - www.javascripttutorial.net](https://www.javascripttutorial.net/javascript-constructor-function/)
 
-> [Prototype in JavaScript - www.geeksforgeeks.org](https://www.geeksforgeeks.org/prototype-in-javascript/)
-
 > [Object prototypes - MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 
 > [Function.prototype.prototype - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)
@@ -117,19 +115,11 @@ Por convenção, as `Constructor Functions` são declaradas em `PascalCase`, com
 
 > [JavaScript Prototype Explained with Examples - www.javascripttutorial.net](https://www.freecodecamp.org/news/javascript-prototype-explained-with-examples/)
 
-> [F.prototype - javascript.info](https://javascript.info/function-prototype)
-
 > [[[Prototype]] vs \_\_proto\_\_ vs .prototype in Javascript - medium.com](https://medium.com/@eamonocallaghan/prototype-vs-proto-vs-prototype-in-javascript-6758cadcbae8)
-
-> [A Beginner’s Guide to JavaScript’s Prototype - www.freecodecamp.org](https://www.freecodecamp.org/news/a-beginners-guide-to-javascripts-prototype/)
 
 > [Inheritance and the prototype chain - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#constructors)
 
-> [Understanding the JavaScript Prototype Chain & Inheritance - blog.risingstack.com](https://blog.risingstack.com/javascript-prototype-chain-inheritance/)
-
 > [Understanding Prototype Chain And Inheritance in JavaScript - hackernoon.com](https://hackernoon.com/understanding-prototype-chain-and-inheritance-in-javascript-5c2w31oa)
-
-> [Prototypal inheritance - javascript.info](https://javascript.info/prototype-inheritance)
 
 > [JavaScript Prototypes and Inheritance – and Why They Say Everything in JS is an Object - www.freecodecamp.org](https://www.freecodecamp.org/news/prototypes-and-inheritance-in-javascript/)
 

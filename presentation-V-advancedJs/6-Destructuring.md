@@ -370,9 +370,4 @@ console.log(firstName); // => 'John'
 
 > [Destructuring in JavaScript – How to Destructure Arrays and Objects - freeCodeCamp](https://www.freecodecamp.org/news/destructuring-patterns-javascript-arrays-and-objects/)
 
-> [Destructuring assignment - javascript.info](https://javascript.info/destructuring-assignment)
-
-> [JavaScript: Destructuring assignment - devmedia.com.br](https://www.devmedia.com.br/javascript-destructuring-assignment/41201)
-
-> [JavaScript · Destructuring Assignment with Default Values - dzaiste.net](https://zaiste.net/posts/javascript-destructuring-assignment-default-values/)
 > **[⬆ Voltar para o índice](./README.md#javascript---advanced-concepts)**

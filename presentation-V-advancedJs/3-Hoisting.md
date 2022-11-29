@@ -80,13 +80,13 @@ A leitura de variáveis declaradas com `let` e `const` antes da sua inicializaç
 ```js
 console.log(myName); // => ReferenceError
 
-let myName = `John`;
+const myName = `John`;
 ```
 
 ```js
 console.log(myAge); // => ReferenceError
 
-const myAge = 35;
+let myAge = 35;
 ```
 
 ## 3.2. Classes
@@ -137,12 +137,10 @@ const myOtherFunction = () => {};
 
 > [Hoisting - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
 
-> [JavaScript Hoisting - W3Schools](https://www.w3schools.com/js/js_hoisting.asp)
-
 > [JavaScript Hoisting - javascripttutorial.net](https://www.javascripttutorial.net/javascript-hoisting/)
 
 > [O que é Hoisting em Javascript? - Medium](https://medium.com/devzera/o-que-%C3%A9-hoisting-em-javascript-b8c629178518)
 
-> [JavaScript Hoisting - Programiz](https://www.programiz.com/javascript/hoisting)
+> [JavaScript Hoisting - programiz.com](https://www.programiz.com/javascript/hoisting)
 
 **[⬆ Voltar para o índice](./README.md#javascript---advanced-concepts)**

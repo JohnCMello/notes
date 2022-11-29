@@ -366,14 +366,4 @@ O código acima não terá o resultado esperado pois `this`, dentro da função 
 
 > [Demystifying the JavaScript this Keyword - javascripttutorial.net](https://www.javascripttutorial.net/javascript-this/)
 
-> [this in JavaScript - geeksforgeeks.org](https://www.geeksforgeeks.org/this-in-javascript/?id=discuss)
-
-> [“this” keyword in JavaScript - educba.com](https://www.educba.com/this-keyword-in-javascript/)
-
-> [JavaScript globalThis - javascripttutorial.net](https://www.javascripttutorial.net/es-next/javascript-globalthis/)
-
-> [call(), apply() and bind() in Javascript with examples - spycoding.com](https://spycoding.com/call-apply-and-bind-in-javascript-with-examples/)
-
-> [Understanding the "this" keyword, call, apply, and bind in JavaScript - ui.dev](https://ui.dev/this-keyword-call-apply-bind-javascript)
-
 **[⬆ Voltar para o índice](./README.md#javascript---advanced-concepts)**

@@ -82,24 +82,12 @@ petOwner('John', 'Cacau');
 
 > [Rest parameters - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 
-> [JavaScript: Operadores Rest e Spread - devMedia.com.br](https://www.devmedia.com.br/javascript-operadores-rest-e-spread/41200)
-
-> [JavaScript Rest vs Spread Operator – What’s the Difference? - freeCodeCamp](https://www.freecodecamp.org/news/javascript-rest-vs-spread-operators/)
-
-> [Rest parameters and spread syntax - javascript.info](https://javascript.info/rest-parameters-spread)
-
-> [An Easy Guide to Object Rest/Spread Properties in JavaScript - dmitripavlutin.com](https://dmitripavlutin.com/object-rest-spread-properties-javascript/)
-
-> [Spread operator vs rest parameters - Medium](https://medium.com/trainingcenter/spread-operator-vs-rest-parameters-f8688d8e1761)
-
-> [Como funcionam o Rest e o Spread Operator- horadecodar.com.br](https://www.horadecodar.com.br/2019/03/19/como-funcionam-o-rest-e-o-spread-operator/)
-
-> [Spread e Rest operators em JavaScript - blog.cod3r.com.br](https://blog.cod3r.com.br/spread-rest/)
-
-> [What is the rest parameter and spread operator in JavaScript - GeeksforGeeks](https://www.geeksforgeeks.org/what-is-the-rest-parameter-and-spread-operator-in-javascript/)
-
 > [JavaScript Rest Parameters - javascripttutorial.net](https://www.javascripttutorial.net/es6/javascript-rest-parameters/)
 
 > [JJavaScript Object Spread - javascripttutorial.net](https://www.javascripttutorial.net/es-next/javascript-object-spread/)
+
+> [JavaScript Rest vs Spread Operator – What’s the Difference? - freeCodeCamp](https://www.freecodecamp.org/news/javascript-rest-vs-spread-operators/)
+
+> [Spread operator vs rest parameters - Medium](https://medium.com/trainingcenter/spread-operator-vs-rest-parameters-f8688d8e1761)
 
 **[⬆ Voltar para o índice](./README.md#javascript---advanced-concepts)**

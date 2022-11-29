@@ -196,11 +196,9 @@ console.log(i) // => ReferenceError: i is not defined
 
 > [Scope - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Scope)
 
-> [Lexical Scope in JavaScript – Beginners Guide - freeCodeCamp](https://www.freecodecamp.org/news/lexical-scope-in-javascript/)
+> [Lexical Scope in JavaScript – Beginners Guide - freeCodeCamp.org](https://www.freecodecamp.org/news/lexical-scope-in-javascript/)
 
-> [Lexical Scope in JavaScript – What Exactly Is Scope in JS? - freeCodeCamp](https://www.freecodecamp.org/news/javascript-lexical-scope-tutorial/)
-
-> [Lexical Scope in JavaScript - educative.io](https://www.educative.io/answers/lexical-scope-in-javascript)
+> [Lexical Scope in JavaScript – What Exactly Is Scope in JS? - freeCodeCamp.org](https://www.freecodecamp.org/news/javascript-lexical-scope-tutorial/)
 
 > [JavaScript Variable Scopes - javascripttutorial.net](https://www.javascripttutorial.net/javascript-variable-scope/#)
 

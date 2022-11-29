@@ -101,6 +101,6 @@ Uma Closure é uma função que preserva o escopo externo a ela dentro do seu es
 
 > [Javascript: Mas afinal, o que são closures? - Medium](https://medium.com/@stephanowallace/javascript-mas-afinal-o-que-s%C3%A3o-closures-4d67863ca9fc)
 
-> [How to Use Closures in JavaScript – A Beginner's Guide - freeCodeCamp](https://www.freecodecamp.org/news/closures-in-javascript/)
+> [How to Use Closures in JavaScript – A Beginner's Guide - freeCodeCamp.org](https://www.freecodecamp.org/news/closures-in-javascript/)
 
 **[⬆ Voltar para o índice](./README.md#javascript---advanced-concepts)**
